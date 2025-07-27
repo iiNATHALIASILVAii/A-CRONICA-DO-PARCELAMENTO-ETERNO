@@ -7,10 +7,12 @@
     <!-- Compatibilidade com navegadores -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Responsividade -->
-    <title>A Crônica do Parcelamento Eterno</title>
+    <title>Minha Aventura</title>
     <!-- Título da página -->
     <link rel="stylesheet" href="style.css" />
     <!-- Link para o arquivo CSS -->
+     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Link para a fonte "Press Start 2P" -->
     <script src="script.js" defer></script>
     <!-- Link para o arquivo JavaScript -->
     <meta
@@ -22,55 +24,28 @@
     <!-- Autor do conteúdo -->
     <meta name="keywords" content="RPG, jogo financeiro, crônica, reflexão" />
     <!-- Palavras-chave para SEO -->
-  </head>
-  <body>
-    <!-- Cabeçalho -->
-    <header>
-      <h1>Capitulo I: O Chamado de Cartália</h1>
-      <div class="overlay"></div>
-      <p>"A jornada começa... A primeira fatura já espreita na neblina"</p>
-      <img
-        src="assets/icons/A guerra de cartalia.png"
-        alt="A guerra de cartalia"
-        width="300"
-        height="200"
-      />
-    <!--Navegação-->
-    <nav>
-      <ul>
-        <li><button onclick="mostrarSessao('novo-jogo')">Novo Jogo</button></li>
-        <li><button onclick="mostrarSessao('continuar')">Continuar</button></li>
-        <li><button onclick="mostrarSessao('creditos')">Créditos</button></li>
-        <li><button onclick="mostrarSessao('sair')">Sair</button></li>
-      </ul>
-    </nav>
-    <header>
-    <!-- Conteúdo principal -->
-    <main>
-      <section id="novo-jogo" class="section">
-        <h2>Novo Jogo</h2>
-        <p>Inicie sua jornada em Cartália, onde cada decisão financeira conta.</p>
-      </section>
 
-      <section id="continuar" class="section">
-        <h2>Continuar</h2>
-        <p>Retome sua aventura e veja como suas escolhas impactaram o mundo.</p>
-      </section>
+  </head> <!-- Cabeçalho do documento -->
+  <body> <!-- Corpo do documento -->
+    <div class="game-container">
+      <header class="game-header">
+        <h1>Minha Aventura</h1>
+        <p>"A jornada começa... A primeira fatura ja espreita na neblina</p> <!-- Título e subtítulo -->
+      </header>
 
-      <section id="creditos" class="section">
-        <h2>Créditos</h2>
-        <p>Desenvolvido por Nathalia Silva. Agradecimentos especiais a todos os colaboradores.</p>
-      </section>
-
-      <section id="sair" class="section">
-        <h2>Sair</h2>
-        <p>Obrigado por jogar! Esperamos vê-lo novamente em Cartália.</p>
-      </section>
-    </main>
+      <nav class="main-menu"> <!-- Menu principal -->
+        <ul> <!-- Lista de opções do menu -->
+          <li><button id="novo-jogo-btn">Nova jornada</button></li>
+          <li><button id="carregar-jogo-btn">Continuar jornada</button></li>
+          <li><button id="grimorio-btn">Grimorio</button></li>
+          <li><button id="sair-btn">Sair</button></li>
+        </ul>
+      </nav>
     <!-- Rodapé -->
-    <footer>
+    <footer class="game-footer">
       <p>&copy; 2025 Nathalia Silva. Todos os direitos reservados.</p>
       <p>Contato: <a href="https://github.com/iiNATHALIASILVAii">Perfil no GitHub</a></p>
     </footer>
+    </div> <!-- Container do jogo -->
   </body>
 </html>
