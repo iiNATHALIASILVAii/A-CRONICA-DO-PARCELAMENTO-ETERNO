@@ -72,7 +72,7 @@ html {
 .game-header p {
   font-size: 1.6em; /* Tamanho do subtítulo */
   color: #d4e4cd; /* Cor do subtítulo */
-  margin-top: 5; /* Espaçamento superior */
+  margin-top: 0; /* Espaçamento superior */
   letter-spacing: 1px; /* Espaçamento entre letras */
   line-height: 1.5; /* Altura da linha */
   display: flex; /* Flexbox para alinhar o texto */
