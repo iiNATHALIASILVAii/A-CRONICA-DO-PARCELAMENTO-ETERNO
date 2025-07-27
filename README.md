@@ -83,8 +83,7 @@ o “Uma promoção irresistível dura menos que a fatura do cartão.”
 • Somzinho de confete 🎉🔥 (com JavaScript)
 • Dragão com falas cômicas ou aleatórias!
 
-💻 Quer fazer por etapas? Aqui está o plano:
-Etapa O que fazer O que você aprende
+💻 O que fazer / O que vou aprender
 1 Tela inicial + chefões + oráculo HTML + CSS básico
 2 Barra de progresso e cliques JavaScript básico
 3 Dragão que muda de humor Manipulação de DOM
