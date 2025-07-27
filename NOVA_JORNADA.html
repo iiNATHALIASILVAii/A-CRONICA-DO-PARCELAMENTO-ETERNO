@@ -36,42 +36,33 @@
   <!-- Cabeçalho do documento -->
   <body>
     <div class="nova-jornada-container">
-      <section class="historia-inicial">
-        <p>
-          Você desperta num vilarejo assolado pelo caos financeiro. Um velho
-          contador te entrega um amuleto e murmura:
-          <strong>“As faturas virão... esteja pronta.”</strong>
-        </p>
-
-        <button id="continuar-historia-btn">Continuar...</button>
-        <!-- Botão para iniciar a jornada -->
-      </section>
-
       <section class="oraculo-intro">
         <div class="fala-oraculo">
-          <p>
+          <p class="dialogo-oraculo">
             O tempo escapando pelos dedos, a lista de afazeres crescendo como
             trepadeiras selvagens...
           </p>
-          <p>
+          <p class="dialogo-oraculo">
             Sim, jovem aprendiz. Você foi convocado(a). Não pelo acaso, mas pelo
             chamamento do Grimório das Tarefas Esquecidas.
           </p>
-          <p>
+          <p class="dialogo-oraculo">
             Seu mundo está em desequilíbrio. A procrastinação é uma criatura
             astuta... e o Tempo, uma entidade que não perdoa.
           </p>
-          <p><strong>Mas há esperança!</strong></p>
-          <p>
+          <p class="dialogo-oraculo destaque" id="esperança-texto">
+            <strong>Mas há esperança!</strong>
+          </p>
+          <p class="dialogo-oraculo">
             Juntos, resgataremos tarefas perdidas, converteremos esforços em
             energia, e reconstruiremos sua historia - Uma realização de cada
             vez.
           </p>
-          <p>
+          <p class="dialogo-oraculo">
             Respire fundo, jovem. A jornada começa agora. O Grimório aguarda sua
             mão firme e seu coração decidido.
           </p>
-          <button id="avancar-btn">Avançar</button>
+          <button id="avancar-btn" style="display: none">Avançar</button>
         </div>
       </section>
 
@@ -79,5 +70,16 @@
         <p>&copy; 2025 Nathalia Silva | Todos os direitos reservados</p>
       </footer>
     </div>
+    <script>
+      // Exibe o botão "Avançar" após 5 segundos
+      setTimeout(() => {
+        document.getElementById("avancar-btn").style.display = "block";
+      }, 5000);
+
+      // Redireciona para a página principal ao clicar no botão "Avançar"
+      document.getElementById("avancar-btn").addEventListener("click", () => {
+        window.location.href = "CARTÁLIA.html";
+      });
+    </script>
   </body>
 </html>

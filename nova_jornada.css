@@ -5,66 +5,86 @@ html {
   height: 100%;
   font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
   color: white; /* Cor do texto */
-  image-rendering: optimizeSpeed; /* Para navegadores antigos */
-  image-rendering: -moz-crisp-edges; /* Firefox */
-  image-rendering: -webkit-optimize-contrast; /* Webkit (Chrome, Safari) */
-  image-rendering: optimize-contrast; /* IE6-9 */
-  image-rendering: pixelated; /* Modern browsers (Chrome, Edge, Firefox) */
-  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
-  -webkit-font-smoothing: none; /* Chrome, Safari */
-  -moz-osx-font-smoothing: grayscale; /* Firefox */
+  -webkit-font-smoothing: antialiased; /* Garante que as fontes sejam renderizadas suavemente */
+  -moz-font-smoothing: antialiased; /* Firefox */
 }
 
-.oraculo-intro {
+.nova-jornada-container {
   width: 100%; /* Largura total */
   height: 100%; /* Altura total */
+  position: relative; /* Permite posicionar elementos filhos */
   background-image: url("assets/icons/fundo\ tela\ inicial.png"); /* Imagem de fundo */
   background-size: cover; /* Cobre toda a área */
   background-position: center; /* Centraliza a imagem de fundo */
   background-repeat: no-repeat; /* Não repete a imagem */
   display: flex; /* Flexbox para centralizar o conteúdo */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
+  flex-direction: column; /* Coloca os elementos em coluna */
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
   padding: 20px; /* Espaçamento interno */
   box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
-  color: #fdf6e3; /* Cor do texto */
-  font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
-  font-size: 1.2em; /* Tamanho da fonte */
-  text-shadow: 1px 1px 4px #000; /* Sombra para o texto */
 }
 
-.fala-oraculo {
-  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade */
-  padding: 40px; /* Espaçamento interno */
-  border-radius: 15px; /* Bordas arredondadas */
+.oraculo-intro {
   text-align: center; /* Centraliza o texto */
   max-width: 800px; /* Largura máxima do oráculo */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-  animation: fadeIn 2s ease-in-out; /* Animação de fade-in */
+  color: #fdf6e3; /* Cor do texto do oráculo */
+  font-size: 1.2em; /* Tamanho da fonte do oráculo */
+  line-height: 1.6; /* Espaçamento entre linhas */
+  text-shadow: 1px 1px 6x rgba(0, 0, 0, 0.8); /* Sombra para destaque do texto */
+  backdrop-filter: blur(3px); /* Desfoque do fundo */
+  border-radius: 15px; /* Bordas arredondadas */
+  padding: 30px 50px; /* Espaçamento interno */
+  margin: 20px auto; /* Margem superior e inferior */
 }
 
-.fala-oraculo p {
-  font-size: 1.4em; /* Tamanho da fonte */
-  color: #333; /* Cor do texto */
-  line-height: 1.5; /* Espaçamento entre linhas */
-  margin-bottom: 20px; /* Espaçamento inferior */
+.oraculo-intro p {
+  margin-bottom: 20px; /* Margem inferior */
+  font-size: 1, 4em; /* Tamanho da fonte */
+  color: #fdf6e3; /* Cor do texto */
+  line-height: 1.6; /* Espaçamento entre linhas */
   text-align: justify; /* Justifica o texto */
+  opacity: 0; /* Começa invisível */
+  transform: translateY(10px); /* Move o texto para baixo */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição suave para opacidade e posição */
 }
 
-.fala-oraculo button {
-  margin-top: 20px; /* Espaçamento acima do botão */
-  padding: 14px 24px; /* Espaçamento interno do botão */
-  font-size: 1em; /* Tamanho da fonte do botão */
-  background-color: #7e5bef; /* Cor de fundo do botão */
+.oraculo-intro p.visible {
+  opacity: 1; /* Torna o texto visível */
+  transform: translateY(0); /* Move o texto para sua posição original */
+}
+
+/* Estilo para "mas há esperança!" */
+#esperanca-texto {
+  font-size: 1.8em; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito para destaque */
+  color: #ffcc00; /* Cor amarela para destaque */
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.5); /* Brilho intenso */
+  opacity: 0; /* Começa invisível */
+  transform: scale(0.8); /* Começa menor */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Transição suave para opacidade e escala */
+}
+
+#esperanca-texto.visible {
+  opacity: 1; /* Torna o texto visível */
+  transform: scale(1); /* Redimensiona para o tamanho original */
+}
+
+.oraculo-intro button {
+  margin-top: 30px; /* Margem superior */
+  padding: 16px 30px; /* Espaçamento interno */
+  background-color: #8c71d6; /* Cor de fundo do botão */
   color: white; /* Cor do texto do botão */
-  border: none; /* Remove borda padrão */
-  border-radius: 8px; /* Bordas arredondadas para o botão */
-  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para cor de fundo e texto */
+  border: none; /* Remove bordas */
+  font-size: 1.2em; /* Tamanho da fonte do botão */
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para cor de fundo e transformação */
 }
 
-.fala-oraculo button:hover {
-  background-color: #a78bfa; /* Cor de fundo ao passar o mouse */
+.oraculo-intro button:hover {
+  background-color: #a084ed; /* Cor de fundo ao passar o mouse */
+  transform: translateY(-2px); /* Move o botão para cima ao passar o mouse */
 }
 
 /* Estilos para o rodapé do jogo */
@@ -77,7 +97,7 @@ html {
   position: absolute; /* Fixa o rodapé na parte inferior */
   bottom: 0; /* Posiciona o rodapé na parte inferior */
   left: 0; /* Alinha o rodapé à esquerda */
-  z-index: 1; /* Garante que o rodapé fique acima de outros elementos */
+  z-index: 10; /* Garante que o rodapé fique acima de outros elementos */
   font-size: 0.8em; /* Tamanho da fonte do rodapé */
   letter-spacing: 4.4px; /* Espaçamento entre letras */
   margin-bottom: 1em; /* Espaçamento inferior */
@@ -95,94 +115,63 @@ html {
   color: #fde68a; /* Mantém a cor do link ao passar o mouse */
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0; /* Começa invisível */
-    transform: translateY(30px); /* Move o elemento para baixo */
-  }
-  to {
-    opacity: 1; /* Termina visível */
-    transform: translateY(0); /* Move o elemento para sua posição original */
-  }
-}
-
 /*Responsividade */
 @media (max-width: 1024px) {
-  .game-header h1 {
+  .oraculo-intro {
     font-size: 2.8em; /* Tamanho do título em telas menores */
   }
 
-  .game-header h1 span {
-    font-size: 0.75em; /* Tamanho do subtítulo em telas menores */
+  .oraculo-intro p {
+    font-size: 1.2em; /* Tamanho do subtítulo em telas menores */
   }
 
-  .game-header p {
-    font-size: 1em; /* Tamanho do subtítulo em telas menores */
+  .oraculo-intro button {
+    padding: 12px 24px; /* Reduz o padding do botão */
+    font-size: 1.1em; /* Tamanho da fonte do botão */
   }
-
-  .main-menu ul {
-    flex-direction: column; /* Coloca os botões em coluna em telas menores */
-    gap: 15px; /* Espaçamento entre os botões */
-    max-width: 80%; /* Largura máxima do menu */
-  }
-
-  .main-menu button {
-    padding: 10px 25px; /* Reduz o padding dos botões */
-    font-size: 1.1em; /* Tamanho da fonte dos botões */
-    min-width: 200px; /* Largura mínima dos botões */
-  }
-}
 
 @media (max-width: 768px) {
-  .game-header h1 {
-    font-size: 2.5em; /* Tamanho do título em telas menores */
+  .oraculo-intro {
+    font-size: 2.5em; /* Tamanho do título em telas pequenas */
   }
 
-  .game-header h1 span {
-    font-size: 0.7em; /* Tamanho do subtítulo em telas menores */
+  .oraculo-intro p {
+    font-size: 1em; /* Tamanho do subtítulo em telas pequenas */
   }
 
-  .game-header p {
-    font-size: 0.9em; /* Tamanho do subtítulo em telas menores */
+  .oraculo-intro button {
+    padding: 10px 20px; /* Reduz o padding do botão */
+    font-size: 1em; /* Tamanho da fonte do botão */
   }
 
-  .main-menu ul {
-    flex-direction: column; /* Coloca os botões em coluna em telas menores */
-    gap: 15px; /* Espaçamento entre os botões */
-    max-width: 90%; /* Largura máxima do menu */
+  #esperanca-texto {
+    font-size: 1.5em; /* Tamanho do texto de esperança em telas pequenas */
   }
-
-  .main-menu button {
-    padding: 8px 20px; /* Reduz o padding dos botões */
-    font-size: 1em; /* Tamanho da fonte dos botões */
-    min-width: 180px; /* Largura mínima dos botões */
+  .game-footer {
+    font-size: 0.8em; /* Tamanho da fonte do rodapé em telas pequenas */
+    letter-spacing: 3px; /* Reduz o espaçamento entre letras */
   }
 }
 
 @media (max-width: 480px) {
-  .game-header h1 {
+  .oraculo-intro {
     font-size: 2em; /* Tamanho do título em telas muito pequenas */
   }
 
-  .game-header h1 span {
-    font-size: 0.6em; /* Tamanho do subtítulo em telas muito pequenas */
+  .oraculo-intro p {
+    font-size: 0.9em; /* Tamanho do subtítulo em telas muito pequenas */
   }
 
-  .game-header p {
-    font-size: 0.8em; /* Tamanho do subtítulo em telas muito pequenas */
+  .oraculo-intro button {
+    padding: 8px 16px; /* Reduz ainda mais o padding do botão */
+    font-size: 0.9em; /* Tamanho da fonte do botão */
   }
 
-  .main-menu ul {
-    gap: 10px; /* Espaçamento entre os botões */
+  #esperanca-texto {
+    font-size: 1.2em; /* Tamanho do texto de esperança em telas muito pequenas */
   }
-
-  .main-menu button {
-    padding: 6px 15px; /* Reduz ainda mais o padding dos botões */
-    font-size: 0.9em; /* Tamanho da fonte dos botões */
-    min-width: 150px; /* Largura mínima dos botões */
-  }
-
-  .game-container {
-    padding: 10px 0; /* Reduz o padding do container em telas pequenas */
+  .game-footer {
+    font-size: 0.7em; /* Tamanho da fonte do rodapé em telas muito pequenas */
+    letter-spacing: 2px; /* Reduz o espaçamento entre letras */
   }
 }
