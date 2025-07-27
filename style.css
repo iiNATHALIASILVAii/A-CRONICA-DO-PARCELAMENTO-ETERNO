@@ -1,6 +1,6 @@
 body {
   background-color: #1f1f1f;
-  background-image: url("assets/bg-cartalia.png"); /* Coloca aqui o caminho certo */
+  background-image: url("assets/icons/background.png"); /* Corrigido o nome do arquivo */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
