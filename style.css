@@ -1,12 +1,12 @@
 body {
   background-color: #1f1f1f;
-  background-image: url('assets/bg-cartalia.png'); /* Coloca aqui o caminho certo */
+  background-image: url("assets/bg-cartalia.png"); /* Coloca aqui o caminho certo */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #fff;
-  font-family: 'Courier New', monospace;
+  font-family: "Courier New", monospace;
 }
 
 header {
@@ -67,6 +67,16 @@ footer {
   text-align: center;
   color: #c7c2c2;
   margin-top: 30px;
+}
+footer a {
+  color: #facc15; /* Um amarelo dourado bem no clima medieval */
+  text-decoration: none; /* Remove o sublinhado padrão */
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #fde68a; /* Um tom mais claro quando passa o mouse */
+  text-decoration: underline; /* Opcional: adiciona um sublinhado ao passar o mouse */
 }
 @media (max-width: 600px) {
   body {
