@@ -1,23 +1,44 @@
-// script.js
-
-// Espera até que a página esteja completamente carregada
 document.addEventListener("DOMContentLoaded", function () {
-  const startButton = document.getElementById("start-btn");
+  // Este bloco não é mais necessário, pois não temos o botão "start-btn"
+  // const startButton = document.getElementById("start-btn");
+  // startButton.style.opacity = 0;
+  // startButton.style.pointerEvents = "none";
+  // setTimeout(() => {
+  //     startButton.style.opacity = 1;
+  //     startButton.style.pointerEvents = "auto";
+  //     startButton.classList.add("fade-in");
+  // }, 2000);
+  // startButton.addEventListener("click", () => {
+  //     alert("O jogo vai começar!");
+  // });
 
-  // Esconde o botão no começo (opcional se já estiver escondido via CSS)
-  startButton.style.opacity = 0;
-  startButton.style.pointerEvents = "none";
+  document
+    .getElementById("novo-jogo-btn")
+    .addEventListener("click", function () {
+      alert("Iniciando Nova Jornada!");
+      // Aqui vou colocar a lógica para iniciar um novo jogo
+      // Exemplo: window.location.href = 'tela_novo_jogo.html';
+    });
 
-  // Simula um pequeno delay para exibir o botão com efeito
-  setTimeout(() => {
-    startButton.style.opacity = 1;
-    startButton.style.pointerEvents = "auto";
-    startButton.classList.add("fade-in");
-  }, 2000); // 2 segundos de suspense antes do botão aparecer
+  document
+    .getElementById("continuar-btn")
+    .addEventListener("click", function () {
+      alert("Continuando Jornada!");
+      // Aqui vou colocar a lógica para carregar um jogo salvo
+      // Exemplo: window.location.href = 'tela_continuar.html';
+    });
 
-  // Quando clicar no botão, pode ir para outra parte do jogo ou mudar a tela
-  startButton.addEventListener("click", () => {
-    alert("O jogo vai começar!"); // Aqui você pode trocar pra carregar o próximo conteúdo
-    // window.location.href = "jogo.html"; ← exemplo de navegação
+  document
+    .getElementById("grimorio-btn")
+    .addEventListener("click", function () {
+      alert("Abrindo Grimório!");
+      // Aqui vou colocar a lógica para mostrar o grimório
+      // Exemplo: window.location.href = 'tela_grimorio.html';
+    });
+
+  document.getElementById("sair-btn").addEventListener("click", function () {
+    alert("Obrigado por jogar! Até a próxima!");
+    // Aqui vou colocar alguma lógica ao sair
+    // window.close(); // Nem sempre funciona por segurança do navegador
   });
 });

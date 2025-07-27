@@ -4,15 +4,23 @@ html {
   padding: 0;
   height: 100%;
   overflow: hidden; /* Impede a rolagem da página */
-  font-family: "Press Start 2P", cursive; /* Fonte medieval */
+  font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
   color: white; /* Cor do texto */
+  image-rendering: optimizeSpeed; /* Para navegadores antigos */
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (Chrome, Safari) */
+  image-rendering: optimize-contrast; /* IE6-9 */
+  image-rendering: pixelated; /* Modern browsers (Chrome, Edge, Firefox) */
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+  -webkit-font-smoothing: none; /* Chrome, Safari */
+  -moz-osx-font-smoothing: grayscale; /* Firefox */
 }
 
 .game-container {
   position: relative; /* Permite posicionar elementos dentro do container */
   width: 100%;
   height: 100vh; /* Altura total da viewport */
-  background-image: url("assets/icons/bc\ limpo.jpeg"); /* Imagem de fundo */
+  background-image: url("assets/icons/bc_wide_3.jpeg"); /* Imagem de fundo */
   background-size: cover; /* Cobre todo o container */
   background-position: center bottom; /* Centraliza a imagem de fundo na parte inferior */
   background-repeat: no-repeat; /* Impede repetição da imagem */
@@ -20,18 +28,20 @@ html {
   flex-direction: column; /* Coloca os elementos em coluna */
   justify-content: space-between; /* Espaça os elementos verticalmente */
   align-items: center; /* Centraliza os elementos horizontalmente */
-  padding: 20px 0; /* Espaçamento interno */
+  padding: 10px 0; /* Espaçamento interno */
   box-sizing: border-box; /* Inclui padding e border no cálculo da largura/altura*/
+  background-color: rgb(56, 27, 21); /* Cor de fundo para contraste */
 }
 
 /*Estilos para o cabeçalho do jogo */
 .game-header {
   text-align: center; /* Centraliza o texto */
   color: white; /* Cor do texto */
-  margin-top: 5vh; /* Espaçamento do topo */
+  margin-top: 2vh; /* Espaçamento do topo */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para destacar o texto */
   z-index: 1; /* Garante que o cabeçalho fique acima de outros elementos */
   position: relative; /* Permite posicionar o cabeçalho */
+  padding: 0 10px; /* Espaçamento interno */
 }
 
 /* Estilos para o título e subtítulo do cabeçalho */
@@ -39,29 +49,46 @@ html {
   display: flex; /* Flexbox para alinhar o título e subtítulo */
   flex-direction: column; /* Coloca o título e subtítulo em coluna */
   align-items: center; /* Centraliza horizontalmente */
-  gap: 10px; /* Espaçamento entre o título e subtítulo */
+  gap: 20px; /* Espaçamento entre o título e subtítulo */
 }
 
 .game-header h1 {
-  font-size: 3em; /* Tamanho do título */
-  color: #ffd700; /* Amarelo dourado */
-  letter-spacing: 2px; /* Espaçamento entre letras */
+  font-size: 4em; /* Tamanho do título */
+  color: #f1c056; /* Amarelo dourado */
+  letter-spacing: 10px; /* Espaçamento entre letras */
   line-height: 1.2; /* Altura da linha */
+  text-shadow: #c7c2c2; /* Sombra para destacar o título */
 }
 
 .game-header h1 span {
   display: block; /* Força a quebra de linha */
   font-size: 0.8em; /* Tamanho do subtítulo */
   margin-top: 5px; /* Espaçamento superior */
-  color: #ffd700; /* Cor do subtítulo */
+  color: #f1c056; /* Cor do subtítulo */
+  margin-bottom: 0; /* Remove margem inferior do subtítulo */
 }
 
+/* Estilos para o parágrafo do cabeçalho */
 .game-header p {
-  font-size: 1em; /* Tamanho do subtítulo */
-  color: #e0e0e0; /* Cor do subtítulo */
-  margin-top: 10; /* Espaçamento superior */
+  font-size: 1.6em; /* Tamanho do subtítulo */
+  color: #d4e4cd; /* Cor do subtítulo */
+  margin-top: 5; /* Espaçamento superior */
   letter-spacing: 1px; /* Espaçamento entre letras */
   line-height: 1.5; /* Altura da linha */
+  display: flex; /* Flexbox para alinhar o texto */
+  flex-direction: column; /* Direção da coluna */
+  align-items: center; /* Centraliza horizontalmente */
+}
+
+.game-header p span {
+  display: block; /* Força a quebra de linha */
+  text-align: center; /* Centraliza o texto */
+  margin-top: 5px; /* Espaçamento superior */
+  line-height: 1.2; /* Altura da linha */
+}
+
+.game-header p span:first-child {
+  margin-bottom: 0; /* Remove margem inferior do primeiro span */
 }
 
 /* Estilos para o menu principal */
@@ -72,7 +99,7 @@ html {
   justify-content: flex-end; /* Alinha os botões ao final do container */
   align-items: center; /* Centraliza os botões horizontalmente */
   width: 100%; /* Largura total */
-  margin-bottom: 10vh; /* Espaçamento inferior */
+  margin-bottom: 11vh; /* Espaçamento inferior */
 }
 
 .main-menu ul {
@@ -83,21 +110,24 @@ html {
   flex-direction: row; /* Coloca os botões em linha */
   justify-content: center; /* Centraliza os botões */
   gap: 20px; /* Espaçamento entre os botões */
-  max-width: 80%; /* Largura máxima do menu */
+  max-width: 90%; /* Largura máxima do menu */
+  min-width: 280px; /* Largura mínima do menu */
+  flex-wrap: wrap; /* Permite quebra de linha se necessário */
 }
 
 .main-menu button {
-  background-color: #ffd700; /* Cor de fundo dos botões */
-  color: #2c2c2c; /* Cor do texto */
-  border: 2px solid #fff; /* Borda branca */
+  background-color: #ffd90017; /* Cor de fundo dos botões */
+  color: #d4e4cd; /* Cor do texto */
+  border: 0.5px solid #ffd700; /* Borda branca */
   border-radius: 5px; /* Bordas arredondadas */
   padding: 10px 30px; /* Espaçamento interno */
   font-size: 1.2em; /* Tamanho da fonte */
   cursor: pointer; /* Muda o cursor para indicar que é clicável */
   transition: all 0.3s ease-in-out; /* Transição suave para hover */
-  min-width: 150px; /* Largura mínima dos botões */
+  min-width: 180px; /* Largura mínima dos botões */
   text-align: center; /* Centraliza o texto dentro do botão */
   letter-spacing: 1px; /* Espaçamento entre letras */
+  box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.4); /* Sombra para destaque */
 }
 
 .main-menu button:hover {
@@ -114,8 +144,7 @@ html {
 .game-footer {
   text-align: center; /* Centraliza o texto */
   color: #c7c2c2; /* Cor do texto */
-  padding: 10px; /* Espaçamento interno */
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+  padding: 5px; /* Espaçamento interno */
   width: 100%; /* Largura total */
   box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
   position: absolute; /* Fixa o rodapé na parte inferior */
@@ -123,10 +152,12 @@ html {
   left: 0; /* Alinha o rodapé à esquerda */
   z-index: 1; /* Garante que o rodapé fique acima de outros elementos */
   font-size: 0.9em; /* Tamanho da fonte do rodapé */
+  letter-spacing: 3.9px; /* Espaçamento entre letras */
+  margin-bottom: 1em; /* Espaçamento inferior */
 }
 
 .game-footer a {
-  color: #facc15; /* Cor do link */
+  color: #f1c056; /* Cor do link */
   text-decoration: none; /* Remove sublinhado do link */
   font-weight: bold; /* Negrito para destaque */
 }
@@ -137,6 +168,32 @@ html {
 }
 
 /*Responsividade */
+@media (max-width: 1024px) {
+  .game-header h1 {
+    font-size: 2.8em; /* Tamanho do título em telas menores */
+  }
+
+  .game-header h1 span {
+    font-size: 0.75em; /* Tamanho do subtítulo em telas menores */
+  }
+
+  .game-header p {
+    font-size: 1em; /* Tamanho do subtítulo em telas menores */
+  }
+
+  .main-menu ul {
+    flex-direction: column; /* Coloca os botões em coluna em telas menores */
+    gap: 15px; /* Espaçamento entre os botões */
+    max-width: 80%; /* Largura máxima do menu */
+  }
+
+  .main-menu button {
+    padding: 10px 25px; /* Reduz o padding dos botões */
+    font-size: 1.1em; /* Tamanho da fonte dos botões */
+    min-width: 200px; /* Largura mínima dos botões */
+  }
+}
+
 @media (max-width: 768px) {
   .game-header h1 {
     font-size: 2.5em; /* Tamanho do título em telas menores */
