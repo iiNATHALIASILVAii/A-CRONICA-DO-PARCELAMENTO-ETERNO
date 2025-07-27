@@ -15,9 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("novo-jogo-btn")
     .addEventListener("click", function () {
-      alert("Iniciando Nova Jornada!");
-      // Aqui vou colocar a lógica para iniciar um novo jogo
-      // Exemplo: window.location.href = 'tela_novo_jogo.html';
+      window.location.href = "NOVA_JORNADA.html";
     });
 
   document

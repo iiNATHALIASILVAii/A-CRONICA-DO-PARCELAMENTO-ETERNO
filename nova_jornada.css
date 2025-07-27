@@ -1,0 +1,188 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
+  color: white; /* Cor do texto */
+  image-rendering: optimizeSpeed; /* Para navegadores antigos */
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (Chrome, Safari) */
+  image-rendering: optimize-contrast; /* IE6-9 */
+  image-rendering: pixelated; /* Modern browsers (Chrome, Edge, Firefox) */
+  -webkit-font-smoothing: antialiased; /* Chrome, Safari */
+  -webkit-font-smoothing: none; /* Chrome, Safari */
+  -moz-osx-font-smoothing: grayscale; /* Firefox */
+}
+
+.oraculo-intro {
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  background-image: url("assets/icons/fundo\ tela\ inicial.png"); /* Imagem de fundo */
+  background-size: cover; /* Cobre toda a área */
+  background-position: center; /* Centraliza a imagem de fundo */
+  background-repeat: no-repeat; /* Não repete a imagem */
+  display: flex; /* Flexbox para centralizar o conteúdo */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  padding: 20px; /* Espaçamento interno */
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+  color: #fdf6e3; /* Cor do texto */
+  font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
+  font-size: 1.2em; /* Tamanho da fonte */
+  text-shadow: 1px 1px 4px #000; /* Sombra para o texto */
+}
+
+.fala-oraculo {
+  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade */
+  padding: 40px; /* Espaçamento interno */
+  border-radius: 15px; /* Bordas arredondadas */
+  text-align: center; /* Centraliza o texto */
+  max-width: 800px; /* Largura máxima do oráculo */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  animation: fadeIn 2s ease-in-out; /* Animação de fade-in */
+}
+
+.fala-oraculo p {
+  font-size: 1.4em; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+  line-height: 1.5; /* Espaçamento entre linhas */
+  margin-bottom: 20px; /* Espaçamento inferior */
+  text-align: justify; /* Justifica o texto */
+}
+
+.fala-oraculo button {
+  margin-top: 20px; /* Espaçamento acima do botão */
+  padding: 14px 24px; /* Espaçamento interno do botão */
+  font-size: 1em; /* Tamanho da fonte do botão */
+  background-color: #7e5bef; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  border: none; /* Remove borda padrão */
+  border-radius: 8px; /* Bordas arredondadas para o botão */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave para cor de fundo e texto */
+}
+
+.fala-oraculo button:hover {
+  background-color: #a78bfa; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilos para o rodapé do jogo */
+.game-footer {
+  text-align: center; /* Centraliza o texto */
+  color: #c7c2c2; /* Cor do texto */
+  padding: 3px; /* Espaçamento interno */
+  width: 100%; /* Largura total */
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+  position: absolute; /* Fixa o rodapé na parte inferior */
+  bottom: 0; /* Posiciona o rodapé na parte inferior */
+  left: 0; /* Alinha o rodapé à esquerda */
+  z-index: 1; /* Garante que o rodapé fique acima de outros elementos */
+  font-size: 0.8em; /* Tamanho da fonte do rodapé */
+  letter-spacing: 4.4px; /* Espaçamento entre letras */
+  margin-bottom: 1em; /* Espaçamento inferior */
+  font-weight: bold; /* Negrito para destaque */
+}
+
+.game-footer a {
+  color: #f1c056; /* Cor do link */
+  text-decoration: none; /* Remove sublinhado do link */
+  font-weight: bold; /* Negrito para destaque */
+}
+
+.game-footer a:hover {
+  text-decoration: underline; /* Sublinha o link ao passar o mouse */
+  color: #fde68a; /* Mantém a cor do link ao passar o mouse */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(30px); /* Move o elemento para baixo */
+  }
+  to {
+    opacity: 1; /* Termina visível */
+    transform: translateY(0); /* Move o elemento para sua posição original */
+  }
+}
+
+/*Responsividade */
+@media (max-width: 1024px) {
+  .game-header h1 {
+    font-size: 2.8em; /* Tamanho do título em telas menores */
+  }
+
+  .game-header h1 span {
+    font-size: 0.75em; /* Tamanho do subtítulo em telas menores */
+  }
+
+  .game-header p {
+    font-size: 1em; /* Tamanho do subtítulo em telas menores */
+  }
+
+  .main-menu ul {
+    flex-direction: column; /* Coloca os botões em coluna em telas menores */
+    gap: 15px; /* Espaçamento entre os botões */
+    max-width: 80%; /* Largura máxima do menu */
+  }
+
+  .main-menu button {
+    padding: 10px 25px; /* Reduz o padding dos botões */
+    font-size: 1.1em; /* Tamanho da fonte dos botões */
+    min-width: 200px; /* Largura mínima dos botões */
+  }
+}
+
+@media (max-width: 768px) {
+  .game-header h1 {
+    font-size: 2.5em; /* Tamanho do título em telas menores */
+  }
+
+  .game-header h1 span {
+    font-size: 0.7em; /* Tamanho do subtítulo em telas menores */
+  }
+
+  .game-header p {
+    font-size: 0.9em; /* Tamanho do subtítulo em telas menores */
+  }
+
+  .main-menu ul {
+    flex-direction: column; /* Coloca os botões em coluna em telas menores */
+    gap: 15px; /* Espaçamento entre os botões */
+    max-width: 90%; /* Largura máxima do menu */
+  }
+
+  .main-menu button {
+    padding: 8px 20px; /* Reduz o padding dos botões */
+    font-size: 1em; /* Tamanho da fonte dos botões */
+    min-width: 180px; /* Largura mínima dos botões */
+  }
+}
+
+@media (max-width: 480px) {
+  .game-header h1 {
+    font-size: 2em; /* Tamanho do título em telas muito pequenas */
+  }
+
+  .game-header h1 span {
+    font-size: 0.6em; /* Tamanho do subtítulo em telas muito pequenas */
+  }
+
+  .game-header p {
+    font-size: 0.8em; /* Tamanho do subtítulo em telas muito pequenas */
+  }
+
+  .main-menu ul {
+    gap: 10px; /* Espaçamento entre os botões */
+  }
+
+  .main-menu button {
+    padding: 6px 15px; /* Reduz ainda mais o padding dos botões */
+    font-size: 0.9em; /* Tamanho da fonte dos botões */
+    min-width: 150px; /* Largura mínima dos botões */
+  }
+
+  .game-container {
+    padding: 10px 0; /* Reduz o padding do container em telas pequenas */
+  }
+}

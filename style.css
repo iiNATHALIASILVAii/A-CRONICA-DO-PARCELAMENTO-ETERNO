@@ -20,7 +20,7 @@ html {
   position: relative; /* Permite posicionar elementos dentro do container */
   width: 100%;
   height: 100vh; /* Altura total da viewport */
-  background-image: url("assets/icons/bc_wide_3.jpeg"); /* Imagem de fundo */
+  background-image: url("assets/icons/bc_wide_v4.png"); /* Imagem de fundo */
   background-size: cover; /* Cobre todo o container */
   background-position: center bottom; /* Centraliza a imagem de fundo na parte inferior */
   background-repeat: no-repeat; /* Impede repetição da imagem */
@@ -57,7 +57,8 @@ html {
   color: #f1c056; /* Amarelo dourado */
   letter-spacing: 10px; /* Espaçamento entre letras */
   line-height: 1.2; /* Altura da linha */
-  text-shadow: #c7c2c2; /* Sombra para destacar o título */
+  text-shadow: #ffd90017; /* Sombra para destacar o título */
+  font-weight: bold; /* Negrito para destaque */
 }
 
 .game-header h1 span {
@@ -99,7 +100,7 @@ html {
   justify-content: flex-end; /* Alinha os botões ao final do container */
   align-items: center; /* Centraliza os botões horizontalmente */
   width: 100%; /* Largura total */
-  margin-bottom: 11vh; /* Espaçamento inferior */
+  margin-bottom: 8vh; /* Espaçamento inferior */
 }
 
 .main-menu ul {
@@ -109,7 +110,7 @@ html {
   display: flex; /* Flexbox para alinhar os botões */
   flex-direction: row; /* Coloca os botões em linha */
   justify-content: center; /* Centraliza os botões */
-  gap: 20px; /* Espaçamento entre os botões */
+  gap: 30px; /* Espaçamento entre os botões */
   max-width: 90%; /* Largura máxima do menu */
   min-width: 280px; /* Largura mínima do menu */
   flex-wrap: wrap; /* Permite quebra de linha se necessário */
@@ -144,16 +145,17 @@ html {
 .game-footer {
   text-align: center; /* Centraliza o texto */
   color: #c7c2c2; /* Cor do texto */
-  padding: 5px; /* Espaçamento interno */
+  padding: 3px; /* Espaçamento interno */
   width: 100%; /* Largura total */
   box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
   position: absolute; /* Fixa o rodapé na parte inferior */
   bottom: 0; /* Posiciona o rodapé na parte inferior */
   left: 0; /* Alinha o rodapé à esquerda */
   z-index: 1; /* Garante que o rodapé fique acima de outros elementos */
-  font-size: 0.9em; /* Tamanho da fonte do rodapé */
-  letter-spacing: 3.9px; /* Espaçamento entre letras */
+  font-size: 0.8em; /* Tamanho da fonte do rodapé */
+  letter-spacing: 4.4px; /* Espaçamento entre letras */
   margin-bottom: 1em; /* Espaçamento inferior */
+  font-weight: bold; /* Negrito para destaque */
 }
 
 .game-footer a {
