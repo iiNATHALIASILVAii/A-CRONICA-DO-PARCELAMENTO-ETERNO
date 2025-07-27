@@ -25,8 +25,77 @@ html {
   box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
 }
 
-.oraculo-intro {
+/* Tela de introdução */
+.intro-screen {
+  display: flex; /* Flexbox para centralizar o conteúdo */
+  flex-direction: column; /* Coloca os elementos em coluna */
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
   text-align: center; /* Centraliza o texto */
+  width: 100%; /* Largura total */
+  height: 100%; /* Altura total */
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Impede interações até que a tela seja ativada */
+  transition: opacity 1s ease-in-out; /* Transição suave para opacidade */
+  position: absolute; /* Fixa a tela de introdução */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  z-index: 20; /* Garante que fique acima de outros elementos */
+}
+
+.intro-screen.active {
+  opacity: 1; /* Torna a tela visível quando ativa */
+  pointer-events: auto; /* Permite interações quando ativa */
+}
+
+.intro-screen h1 {
+  font-family: "Playfair Display", serif; /* Fonte serifada para o título */
+  font-size: 3em; /* Tamanho do título */
+  color: #ffcc00; /* Cor dourada para o título */
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.5); /* Brilho intenso */
+  text-align: center; /* Centraliza o título */
+  margin-bottom: 20px; /* Margem inferior */
+}
+
+.intro-screen p {
+  font-size: 1.5em; /* Tamanho do subtítulo */
+  color: #fdf6e3; /* Cor do texto do subtítulo */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para destaque do texto */
+  text-align: center; /* Centraliza o subtítulo */
+  margin-bottom: 40px; /* Margem inferior */
+}
+
+.intro-screen button {
+  padding: 16px 36px; /* Espaçamento interno do botão */
+  background-color: #8c71d6; /* Cor de fundo do botão */
+  color: white; /* Cor do texto do botão */
+  border: none; /* Remove bordas */
+  font-size: 1.2em; /* Tamanho da fonte do botão */
+  border-radius: 8px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para cor de fundo e transformação */
+}
+
+.intro-screen button:hover {
+  background-color: #a084ed; /* Cor de fundo ao passar o mouse */
+  transform: translateY(-2px); /* Move o botão para cima ao passar o mouse */
+}
+
+/* Estilo para a sessão do oráculo */
+.oraculo-intro {
+  opacity: 0.9; /* Levemente transparente */
+  pointer-events: none; /* Impede interações até que a sessão seja ativada */
+  transition: opacity 1s ease-in-out; /* Transição suave para opacidade */
+  top: 0; /* Alinha ao topo */
+  left: 0; /* Alinha à esquerda */
+  position: absolute; /* Fixa a sessão do oráculo */
+  z-index: 15; /* Abaixo da introscreen mas acima do footer */
+  text-align: center; /* Centraliza o texto */
+  display: flex; /* Flexbox para centralizar o conteúdo */
+  flex-direction: column; /* Coloca os elementos em coluna */
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
   max-width: 800px; /* Largura máxima do oráculo */
   color: #fdf6e3; /* Cor do texto do oráculo */
   font-size: 1.2em; /* Tamanho da fonte do oráculo */
@@ -36,6 +105,11 @@ html {
   border-radius: 15px; /* Bordas arredondadas */
   padding: 30px 50px; /* Espaçamento interno */
   margin: 20px auto; /* Margem superior e inferior */
+}
+
+.oraculo-intro.active {
+  opacity: 1; /* Torna a sessão visível quando ativa */
+  pointer-events: auto; /* Permite interações quando ativa */
 }
 
 .oraculo-intro p {

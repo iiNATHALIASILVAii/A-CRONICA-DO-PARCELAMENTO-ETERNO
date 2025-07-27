@@ -36,6 +36,15 @@
   <!-- Cabeçalho do documento -->
   <body>
     <div class="nova-jornada-container">
+      <section class="intro-screen active">
+        <h1>O Grimório das Tarefas Esquecidas</h1>
+        <!-- Tela de introdução -->
+         <p>
+          "Desperte, jovem aprendiz. Sua jornada começa agora."
+         </p>
+         <button id="iniciar-jornada-btn">Iniciar Jornada</button>
+        <!-- Botão para iniciar a jornada -->
+      </section>
       <section class="oraculo-intro">
         <div class="fala-oraculo">
           <p class="dialogo-oraculo">
@@ -70,16 +79,7 @@
         <p>&copy; 2025 Nathalia Silva | Todos os direitos reservados</p>
       </footer>
     </div>
-    <script>
-      // Exibe o botão "Avançar" após 5 segundos
-      setTimeout(() => {
-        document.getElementById("avancar-btn").style.display = "block";
-      }, 5000);
-
-      // Redireciona para a página principal ao clicar no botão "Avançar"
-      document.getElementById("avancar-btn").addEventListener("click", () => {
-        window.location.href = "CARTÁLIA.html";
-      });
-    </script>
+    <script src="nova_jornada.js" defer></script>
+    <!-- Link para o arquivo JavaScript -->
   </body>
 </html>
