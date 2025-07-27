@@ -1,7 +1,12 @@
 body {
   background-color: #1f1f1f;
-  color: #eee;
-  font-family: 'Courier New', Courier, monospace;
+  background-image: url('assets/bg-cartalia.png'); /* Coloca aqui o caminho certo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #fff;
+  font-family: 'Courier New', monospace;
 }
 
 header {
@@ -60,7 +65,7 @@ footer {
   background: #000;
   padding: 10px;
   text-align: center;
-  color: #999;
+  color: #c7c2c2;
   margin-top: 30px;
 }
 @media (max-width: 600px) {
