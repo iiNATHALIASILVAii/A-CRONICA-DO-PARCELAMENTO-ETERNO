@@ -20,8 +20,6 @@
       rel="stylesheet"
     />
     <!-- Link para a fonte Playfair Display -->
-    <script src="script.js" defer></script>
-    <!-- Link para o arquivo JavaScript -->
     <meta
       name="description"
       content="Uma reflexão sobre o ciclo interminável de parcelamento de dívidas e suas implicações sociais e econômicas."
@@ -37,18 +35,17 @@
     <div class="nova-jornada-container">
       <section class="intro-screen active">
         <h1>O Grimório das Tarefas Esquecidas</h1>
-        <!-- Tela de introdução -->
-        <p>"Desperte, jovem aprendiz. Sua jornada começa agora."</p>
+        <p>"Desperte, jovem aprendiz. Sua verdadeira jornada começa agora."</p>
         <button id="iniciar-jornada-btn">Iniciar Jornada</button>
-        <!-- Botão para iniciar a jornada -->
+        <button id="sair-intro-btn" class="secondary-btn">Sair</button>
       </section>
+
       <section class="oraculo-intro">
         <div class="dialogo-texto-atual" aria-live="polite"></div>
         <div class="botoes-oraculo">
-          <button id="avancar-btn" style="display: none">Avançar</button>
-          <button id="voltar-menu-btn" style="display: none">
-            Voltar ao Menu Principal
-          </button>
+          <button id="skip-btn" class="secondary-btn">Pular Diálogos</button>
+          <button id="avancar-btn">Avançar</button>
+          <button id="sair-oraculo-btn" class="secondary-btn">Sair</button>
         </div>
       </section>
 
@@ -56,7 +53,7 @@
         <p>&copy; 2025 Nathalia Silva | Todos os direitos reservados</p>
       </footer>
     </div>
+
     <script src="nova_jornada.js" defer></script>
-    <!-- Link para o arquivo JavaScript -->
   </body>
 </html>

@@ -3,167 +3,192 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
-  color: white; /* Cor do texto */
-  -webkit-font-smoothing: antialiased; /* Garante que as fontes sejam renderizadas suavemente */
-  -moz-font-smoothing: antialiased; /* Firefox */
+  font-family: "Lora", serif;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; /* Corrigi para moz-osx-font-smoothing */
+  overflow: hidden; /* Evita scroll desnecessário */
 }
 
 .nova-jornada-container {
-  width: 100%; /* Largura total */
-  height: 100%; /* Altura total */
-  position: relative; /* Permite posicionar elementos filhos */
-  background-image: url("assets/icons/fundo\ tela\ inicial.png"); /* Imagem de fundo */
-  background-size: cover; /* Cobre toda a área */
-  background-position: center; /* Centraliza a imagem de fundo */
-  background-repeat: no-repeat; /* Não repete a imagem */
-  display: flex; /* Flexbox para centralizar o conteúdo */
-  flex-direction: column; /* Coloca os elementos em coluna */
-  align-items: center; /* Centraliza horizontalmente */
-  justify-content: center; /* Centraliza verticalmente */
-  padding: 20px; /* Espaçamento interno */
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-image: url("assets/icons/fundo\ tela\ inicial.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Tela de introdução */
+/* Estilos para a tela de Introdução */
 .intro-screen {
-  display: flex; /* Flexbox para centralizar o conteúdo */
-  flex-direction: column; /* Coloca os elementos em coluna */
-  justify-content: center; /* Centraliza verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  text-align: center; /* Centraliza o texto */
-  width: 100%; /* Largura total */
-  height: 100%; /* Altura total */
-  background-color: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
   opacity: 0; /* Começa invisível */
-  pointer-events: none; /* Impede interações até que a tela seja ativada */
-  transition: opacity 1s ease-in-out; /* Transição suave para opacidade */
-  position: absolute; /* Fixa a tela de introdução */
-  top: 0; /* Alinha ao topo */
-  left: 0; /* Alinha à esquerda */
-  z-index: 20; /* Garante que fique acima de outros elementos */
+  pointer-events: none; /* Impede interações */
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 20;
 }
 
 .intro-screen.active {
-  opacity: 1; /* Torna a tela visível quando ativa */
-  pointer-events: auto; /* Permite interações quando ativa */
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .intro-screen h1 {
-  font-family: "Playfair Display", serif; /* Fonte serifada para o título */
-  font-size: 3em; /* Tamanho do título */
-  color: #ffcc00; /* Cor dourada para o título */
-  text-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.5); /* Brilho intenso */
-  text-align: center; /* Centraliza o título */
-  margin-bottom: 20px; /* Margem inferior */
+  font-family: "Playfair Display", serif;
+  font-size: 3.5em;
+  color: #ffcc00;
+  text-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.5);
+  margin-bottom: 20px;
+  letter-spacing: 10px; /* Espaçamento entre letras */
 }
 
 .intro-screen p {
-  font-size: 1.5em; /* Tamanho do subtítulo */
-  color: #fdf6e3; /* Cor do texto do subtítulo */
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* Sombra para destaque do texto */
-  text-align: center; /* Centraliza o subtítulo */
-  margin-bottom: 40px; /* Margem inferior */
+  font-size: 1.2em;
+  color: #fdf6e3;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  margin-bottom: 40px;
+  letter-spacing: 3px; /* Espaçamento entre letras */
 }
 
-.intro-screen button {
-  padding: 16px 36px; /* Espaçamento interno do botão */
-  background-color: #8c71d6; /* Cor de fundo do botão */
-  color: white; /* Cor do texto do botão */
-  border: none; /* Remove bordas */
-  font-size: 1.2em; /* Tamanho da fonte do botão */
-  border-radius: 8px; /* Bordas arredondadas */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transição suave para cor de fundo e transformação */
+/* Estilo para botões primários (Iniciar Jornada, Avançar) */
+.intro-screen button,
+.botoes-oraculo button:not(.secondary-btn) {
+  padding: 18px 36px;
+  font-size: 1.2em;
+  background-color: #8c71d6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px; /* Adiciona margem entre botões na tela de intro */
+  justify-content: space-between; /* Garante que os botões ocupem o espaço disponível */
+  flex-direction: row;
 }
 
-.intro-screen button:hover {
-  background-color: #a084ed; /* Cor de fundo ao passar o mouse */
-  transform: translateY(-2px); /* Move o botão para cima ao passar o mouse */
+.intro-screen button:hover,
+.botoes-oraculo button:not(.secondary-btn):hover {
+  background-color: #a084ed;
+  transform: translateY(-2px);
+  flex-direction: row; /* Garante que os botões mantenham a direção correta */
 }
 
-/* Estilo para a sessão do oráculo */
+/* **NOVO:** Estilo para botões secundários (Sair, Pular Diálogos) */
+.secondary-btn {
+  background-color: transparent; /* Fundo transparente */
+  border: 2px solid #8c71d6; /* Borda da cor primária */
+  color: #8c71d6; /* Texto da cor primária */
+  padding: 16px 32px; /* Ligeiramente menor */
+  font-size: 1.1em;
+  flex-direction: row; /* Garante que os botões secundários também sejam flexíveis */
+  justify-content: space-between;
+}
+
+.secondary-btn:hover {
+  background-color: rgba(
+    140,
+    113,
+    214,
+    0.2
+  ); /* Fundo sutil ao passar o mouse */
+  color: #a084ed;
+  border-color: #a084ed;
+}
+
+/* Estilos para a seção do oráculo */
 .oraculo-intro {
-  opacity: 0;
-  pointer-events: none;
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Impede interações */
   transition: opacity 1s ease-in-out;
-  position: absolute;
-  top: 50%; /* Centraliza verticalmente */
-  left: 50%; /* Centraliza horizontalmente */
+  position: absolute; /* Centralizado na tela */
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%); /* Ajusta para centralização exata */
   z-index: 15;
-  display: flex;
-  flex-direction: column; /* Conteúdo em coluna (texto, depois botões) */
-  justify-content: space-between; /* Espaço entre o texto e os botões */
-  align-items: center;
+
+  display: flex; /* Flexbox para layout interno */
+  flex-direction: column; /* Organiza conteúdo em coluna (texto, depois botões) */
+  justify-content: space-between; /* Espaça o texto e os botões */
+  align-items: center; /* Centraliza itens horizontalmente */
   padding: 40px;
   text-align: center;
   max-width: 800px;
-  height: 350px; /* Altura fixa para a caixa de diálogo  */
+  height: 350px; /* **IMPORTANTE:** Altura fixa para a caixa de diálogo */
   color: #fdf6e3;
   font-size: 1.2em;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(3px) brightness(0.6); /* Corrigi para brightness */
+  backdrop-filter: blur(3px) brightness(0.6);
   border-radius: 15px;
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+  line-height: 1.6;
+  box-sizing: border-box;
 }
 
 .oraculo-intro.active {
-  opacity: 1; /* Torna a sessão visível quando ativa */
-  pointer-events: auto; /* Permite interações quando ativa */
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.oraculo-intro p {
-  margin-bottom: 20px; /* Margem inferior */
-  color: #fdf6e3; /* Cor do texto */
-  line-height: 1.6; /* Espaçamento entre linhas */
-  text-align: justify; /* Justifica o texto */
-  opacity: 0; /* Começa invisível */
-  transform: translateY(10px); /* Move o texto para baixo */
-  flex-grow: 1; /* Permite que o texto ocupe o espaço restante */
-  display: flex; /* Flexbox para alinhar o texto */
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
-  min-height: 150px; /* Altura mínima para o parágrafo */
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transição suave para opacidade e posição */
-  font-size: 1em; /* Tamanho padrão do subtítulo */
-}
-
-.oraculo-intro p.visible {
-  opacity: 1; /* Torna o texto visível */
-  transform: translateY(0); /* Move o texto para sua posição original */
-}
-
+/* Estilos para o div que contém o texto do diálogo atual (posição fixa) */
 .dialogo-texto-atual {
   font-size: 1.4em;
   color: #fdf6e3;
   line-height: 1.5;
   text-align: justify;
-  margin-bottom: 20px; /* Espaçamento antes dos botões */
-  flex-grow: 1; /* Permite que o texto ocupe o espaço disponível */
-  display: flex; /* Para centralizar o texto verticalmente se ele não preencher todo o espaço */
-  align-items: center; /* Centraliza o texto verticalmente */
-  justify-content: center; /* Centraliza o texto horizontalmente */
-  min-height: 150px; /* Altura mínima para o texto, ajustável */
+  flex-grow: 1; /* Permite que ocupe o espaço disponível */
+  display: flex; /* Para centralizar o texto verticalmente */
+  align-items: center; /* Centraliza texto verticalmente */
+  justify-content: center; /* Centraliza texto horizontalmente */
+  min-height: 150px; /* Garante altura mínima para o texto */
+  width: 100%; /* Ocupa a largura total do oraculo-intro */
+  padding-bottom: 20px; /* Espaçamento antes dos botões, se necessário */
 }
 
-/* Estilo para "mas há esperança!" */
+/* Estilo para "Mas há esperança!" */
 .destaque-esperanca {
-  font-size: 1.8em; /* Ajuste este valor conforme desejar */
+  font-size: 1.8em; /* Ajuste o tamanho da fonte para o destaque */
   font-weight: bold;
   color: #ffcc00;
   text-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.5);
-  display: block; /* Para garantir que o span ocupe a linha toda e receba o text-align: center */
-  text-align: center; /* Centraliza o texto de esperança */
-  /* As transições de opacidade e transform serão aplicadas via JS quando o texto for inserido */
+  display: block; /* Para que o span ocupe a linha e possa ser centralizado */
+  text-align: center;
 }
 
-.botoes-oraculo.visible { /* Classe que será adicionada pelo JS */
-    opacity: 1;
-    pointer-events: auto; /* Permite interações com os botões */
+/* Container para os botões do oráculo */
+.botoes-oraculo {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os botões se ajustem em várias linhas, se necessário */
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  gap: 20px; /* Espaçamento entre os botões */
+  margin-top: 20px; /* Espaçamento do texto para os botões */
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Impede interações */
+  transition: opacity 0.5s ease-in-out; /* Transição suave */
 }
 
-/* Estilos para os botões dentro de .botoes-oraculo (Avançar e Voltar) - Removi as margins para usar o gap do pai */
+.botoes-oraculo.visible {
+  /* Classe adicionada pelo JS para mostrar */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Estilos para os botões dentro de .botoes-oraculo */
 .botoes-oraculo button {
   padding: 16px 30px;
   font-size: 1.1em;
@@ -182,96 +207,153 @@ html {
 
 /* Estilos para o rodapé do jogo */
 .game-footer {
-  text-align: center; /* Centraliza o texto */
-  color: #c7c2c2; /* Cor do texto */
-  padding: 3px; /* Espaçamento interno */
-  width: 100%; /* Largura total */
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
-  position: absolute; /* Fixa o rodapé na parte inferior */
-  bottom: 0; /* Posiciona o rodapé na parte inferior */
-  left: 0; /* Alinha o rodapé à esquerda */
-  z-index: 10; /* Garante que o rodapé fique acima de outros elementos */
-  font-size: 0.8em; /* Tamanho da fonte do rodapé */
-  letter-spacing: 4.4px; /* Espaçamento entre letras */
-  margin-bottom: 1em; /* Espaçamento inferior */
-  font-weight: bold; /* Negrito para destaque */
+  text-align: center;
+  color: #c7c2c2;
+  padding: 3px;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 25;
+  font-size: 0.8em;
+  letter-spacing: 4.4px;
+  margin-bottom: 1em;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .game-footer a {
-  color: #f1c056; /* Cor do link */
-  text-decoration: none; /* Remove sublinhado do link */
-  font-weight: bold; /* Negrito para destaque */
+  color: #f1c056;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .game-footer a:hover {
-  text-decoration: underline; /* Sublinha o link ao passar o mouse */
-  color: #fde68a; /* Mantém a cor do link ao passar o mouse */
+  text-decoration: underline;
+  color: #fde68a;
 }
 
+/* Responsividade (Organizei em ordem crescente de max-width ou min-width) */
 @media (max-width: 480px) {
-    .intro-screen h1 { font-size: 2em; }
-    .intro-screen p { font-size: 1em; }
-    .intro-screen button { padding: 14px 28px; font-size: 1em; }
+  .intro-screen h1 {
+    font-size: 2em;
+  }
+  .intro-screen p {
+    font-size: 1em;
+  }
+  /* Ajustei para os dois tipos de botões na intro */
+  .intro-screen button {
+    padding: 12px 24px;
+    font-size: 1em;
+    width: 90%; /* Ocupa mais largura */
+    margin: 8px 0; /* Espaçamento menor vertical */
+  }
 
-    .oraculo-intro {
-        padding: 20px;
-        font-size: 1em;
-        height: 250px;
-    }
-    .dialogo-texto-atual {
-        font-size: 1.1em;
-        min-height: 100px;
-    }
-    .destaque-esperanca { font-size: 1.4em; }
-    .botoes-oraculo {
-        flex-direction: column;
-        gap: 10px;
-    }
-    .botoes-oraculo button {
-        padding: 10px 18px;
-        font-size: 0.9em;
-        width: 80%;
-    }
-    .game-footer { font-size: 0.7em; letter-spacing: 2px; }
+  .oraculo-intro {
+    padding: 20px;
+    font-size: 1em;
+    height: 250px;
+  }
+  .dialogo-texto-atual {
+    font-size: 1.1em;
+    min-height: 100px;
+  }
+  .destaque-esperanca {
+    font-size: 1.4em;
+  }
+  .botoes-oraculo {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .botoes-oraculo button {
+    padding: 10px 18px;
+    font-size: 0.9em;
+    width: 90%; /* Ocupa mais largura */
+  }
+  .secondary-btn {
+    /* Ajuste para secundários em mobile */
+    padding: 8px 16px;
+    font-size: 0.85em;
+  }
+  .game-footer {
+    font-size: 0.7em;
+    letter-spacing: 2px;
+  }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-    .intro-screen h1 { font-size: 2.5em; }
-    .intro-screen p { font-size: 1.1em; }
+  .intro-screen h1 {
+    font-size: 2.5em;
+  }
+  .intro-screen p {
+    font-size: 1.1em;
+  }
+  .intro-screen button {
+    margin-top: 15px;
+  } /* Ajuste de margem */
 
-    .oraculo-intro {
-        max-width: 95%;
-        padding: 25px 30px;
-        font-size: 1.1em;
-        height: 280px;
-    }
-    .dialogo-texto-atual { font-size: 1.2em; }
-    .destaque-esperanca { font-size: 1.6em; }
-    .botoes-oraculo button { padding: 12px 20px; font-size: 1em; }
+  .oraculo-intro {
+    max-width: 95%;
+    padding: 25px 30px;
+    font-size: 1.1em;
+    height: 280px;
+  }
+  .dialogo-texto-atual {
+    font-size: 1.2em;
+  }
+  .destaque-esperanca {
+    font-size: 1.6em;
+  }
+  .botoes-oraculo button {
+    padding: 12px 20px;
+    font-size: 1em;
+  }
+  .secondary-btn {
+    padding: 10px 18px;
+    font-size: 1em;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-    .intro-screen h1 { font-size: 3em; }
-    .intro-screen p { font-size: 1.3em; }
+  .intro-screen h1 {
+    font-size: 3em;
+  }
+  .intro-screen p {
+    font-size: 1.3em;
+  }
 
-    .oraculo-intro {
-        max-width: 90%;
-        padding: 30px 40px;
-        height: 300px;
-    }
-    .dialogo-texto-atual { font-size: 1.3em; }
-    .destaque-esperanca { font-size: 2em; }
+  .oraculo-intro {
+    max-width: 90%;
+    padding: 30px 40px;
+    font-size: 1.2em;
+    height: 300px;
+  }
+  .dialogo-texto-atual {
+    font-size: 1.3em;
+  }
+  .destaque-esperanca {
+    font-size: 2em;
+  }
 }
 
 /* Estilos para telas maiores (desktop) - Base inicial */
 @media (min-width: 1025px) {
-    .intro-screen h1 { font-size: 3.5em; }
-    .intro-screen p { font-size: 1.5em; }
-    .oraculo-intro {
-        max-width: 800px;
-        height: 350px;
-        font-size: 1.2em;
-    }
-    .dialogo-texto-atual { font-size: 1.4em; }
-    .destaque-esperanca { font-size: 2.2em; } /* Ajuste o tamanho do destaque */
+  .intro-screen h1 {
+    font-size: 3.5em;
+  }
+  .intro-screen p {
+    font-size: 1.5em;
+  }
+  .oraculo-intro {
+    max-width: 800px;
+    height: 350px;
+    font-size: 1.2em;
+  }
+  .dialogo-texto-atual {
+    font-size: 1.4em;
+  }
+  .destaque-esperanca {
+    font-size: 2.2em;
+  }
 }
