@@ -82,7 +82,7 @@ html {
   box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.4);
   margin: 10px; /* Espaçamento entre os botões */
   flex-direction: row; /* Garante que o texto fique alinhado horizontalmente */
-  justify-content: space-between;
+  justify-content: space-evenly; /* Distribui o espaço entre os botões */
   flex-wrap: nowrap; /* Impede que os botões quebrem em várias linhas */
 }
 
