@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Botões de controle
   const skipBtn = document.getElementById("skip-btn");
   const sairIntroBtn = document.getElementById("sair-intro-btn");
-  const sairOraculoBtn = document.getElementById("sair-oraculo-btn");
 
   let currentIndex = 0;
   let typingTimeout;
@@ -31,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function typeWriter(text, element, callback) {
     let charIndex = 0;
     element.innerHTML = "";
+    clearTimeout(typingTimeout); // Garante que qualquer digitação anterior seja interrompida
 
     function type() {
       if (charIndex < text.length) {
@@ -44,11 +44,22 @@ document.addEventListener("DOMContentLoaded", () => {
     type();
   }
 
+  // Função para controlar a visibilidade dos botões de ação (Avançar, Voltar ao Menu)
+  function setActionButtonsVisibility(visible) {
+    avancarBtn.style.visibility = visible ? "visible" : "hidden";
+    voltarMenuBtn.style.visibility = visible ? "visible" : "hidden";
+  }
+
   // Função para mostrar o próximo parágrafo
   function showNextParagraph() {
-    if (typingTimeout) clearTimeout(typingTimeout);
-    // Remove a classe 'visible' dos botões do oráculo, para que eles reapareçam apenas no final dos diálogos
-    botoesOraculoContainer.classList.remove("visible");
+    clearTimeout(typingTimeout);
+
+    // No início de cada parágrafo (exceto o último), esconde os botões de ação e mostra o Pular Diálogos
+    if (currentIndex < dialogos.length) {
+      // Se ainda há diálogos para exibir
+      setActionButtonsVisibility(false);
+      skipBtn.style.visibility = "visible";
+    }
 
     if (currentIndex < dialogos.length) {
       const currentText = dialogos[currentIndex];
@@ -76,26 +87,27 @@ document.addEventListener("DOMContentLoaded", () => {
         dialogoTextoAtual.innerHTML = "";
         typeWriter(currentText, dialogoTextoAtual, () => {
           currentIndex++;
-          // Se não for o último diálogo, adicione o atraso
           if (currentIndex < dialogos.length) {
             setTimeout(showNextParagraph, paragraphDelay);
           } else {
-            // Se for o último, mostra os botões de controle
-            botoesOraculoContainer.classList.add("visible");
+            // Se é o último diálogo, mostra os botões de ação e esconde o Pular Diálogos
+            setActionButtonsVisibility(true);
+            skipBtn.style.visibility = "hidden";
           }
         });
       }
     } else {
-      // Todos os parágrafos foram exibidos, mostra os botões de controle
-      botoesOraculoContainer.classList.add("visible");
+      // Já passou por todos os diálogos ou pulou, exibe os botões de ação e esconde o Pular Diálogos
+      setActionButtonsVisibility(true);
+      skipBtn.style.visibility = "hidden";
     }
   }
 
   // Função para PULAR todos os diálogos
   function skipDialogs() {
-    if (typingTimeout) clearTimeout(typingTimeout); // Para a digitação atual
-    dialogoTextoAtual.innerHTML = dialogos[dialogos.length - 1]; // Exibe o último diálogo instantaneamente
-    // Aplica o estilo de destaque se o último for "Mas há esperança!"
+    clearTimeout(typingTimeout);
+    dialogoTextoAtual.innerHTML = dialogos[dialogos.length - 1];
+
     if (dialogos[dialogos.length - 1] === "Mas há esperança!") {
       dialogoTextoAtual.innerHTML = `<span class="destaque-esperanca">${
         dialogos[dialogos.length - 1]
@@ -104,19 +116,20 @@ document.addEventListener("DOMContentLoaded", () => {
         ".destaque-esperanca"
       );
       if (destaqueSpan) {
-        destaqueSpan.style.opacity = 1; // Já visível
-        destaqueSpan.style.transform = "scale(1)"; // Já no tamanho normal
+        destaqueSpan.style.opacity = 1;
+        destaqueSpan.style.transform = "scale(1)";
       }
     }
-    currentIndex = dialogos.length; // Garante que a lógica saiba que todos foram exibidos
-    botoesOraculoContainer.classList.add("visible"); // Mostra os botões de controle
+    currentIndex = dialogos.length;
+
+    // Mostra os botões de ação e esconde o Pular Diálogos
+    setActionButtonsVisibility(true);
+    skipBtn.style.visibility = "hidden";
   }
 
   // Função para SAIR do jogo (redireciona para a página inicial)
   function exitGame() {
-    // Redireciona para a página inicial do seu jogo.
-    // Substitua 'index.html' pelo nome do seu arquivo de página inicial, se for diferente.
-    window.location.href = "index.html"; //
+    window.location.href = "cartalia.html";
   }
 
   // === Lógica de Transição entre Telas ===
@@ -133,8 +146,11 @@ document.addEventListener("DOMContentLoaded", () => {
       oraculoIntro.style.opacity = 0;
       oraculoIntro.style.pointerEvents = "auto";
 
-      // ajuste pra que o botão de pular diálogos seja visível desde o início da tela do oráculo
-      skipBtn.style.display = "block"; // Ou 'inline-block' dependendo do seu layout desejado
+      // Garante que o container dos botões do oráculo esteja visível
+      botoesOraculoContainer.classList.add("visible");
+      // Inicialmente, apenas o botão Pular Diálogos deve estar visível
+      setActionButtonsVisibility(false); // Esconde Avançar e Voltar
+      skipBtn.style.visibility = "visible"; // Mostra Pular Diálogos
 
       setTimeout(() => {
         oraculoIntro.style.opacity = 1;
@@ -146,17 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Event Listeners para os botões
   skipBtn.addEventListener("click", skipDialogs);
   sairIntroBtn.addEventListener("click", exitGame);
-  sairOraculoBtn.addEventListener("click", exitGame);
+  voltarMenuBtn.addEventListener("click", exitGame); // "Voltar ao Menu Principal" agora funciona como "Sair"
 
-  // Evento para o botão "Avançar" (para continuar ou avançar para próxima etapa)
+  // Evento para o botão "Avançar"
   avancarBtn.addEventListener("click", () => {
     alert("Jornada Avançando!");
     // Lógica para a próxima fase do jogo
-  });
-
-  // Evento para o botão "Voltar ao Menu Principal" - CORRIGIDO
-  voltarMenuBtn.addEventListener("click", () => {
-    alert("Voltando ao Menu Principal!");
-    window.location.href = "index.html"; //
   });
 });

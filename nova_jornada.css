@@ -6,8 +6,8 @@ html {
   font-family: "Lora", serif;
   color: white;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; /* Corrigi para moz-osx-font-smoothing */
-  overflow: hidden; /* Evita scroll desnecessário */
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 .nova-jornada-container {
@@ -68,33 +68,36 @@ html {
 /* Estilo base para TODOS os botões da nova_jornada.html */
 .intro-screen button,
 .botoes-oraculo button {
-  background-color: #ffd90017; /* Cor de fundo dos botões */
-  color: #d4e4cd; /* Cor do texto */
-  border: 0.5px solid #ffd700; /* Borda branca */
-  border-radius: 5px; /* Bordas arredondadas */
-  padding: 10px 30px; /* Espaçamento interno */
-  font-size: 1.2em; /* Tamanho da fonte */
-  cursor: pointer; /* Muda o cursor para indicar que é clicável */
-  transition: all 0.3s ease-in-out; /* Transição suave para hover */
-  min-width: 180px; /* Largura mínima dos botões */
-  text-align: center; /* Centraliza o texto dentro do botão */
-  letter-spacing: 1px; /* Espaçamento entre letras */
-  box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.4); /* Sombra para destaque */
-  margin-top: 20px; /* Espaçamento entre botões na intro e botões do oráculo */
+  background-color: #ffd90017;
+  color: #d4e4cd;
+  border: 0.5px solid #ffd700;
+  border-radius: 5px;
+  padding: 10px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  min-width: 180px;
+  text-align: center;
+  letter-spacing: 1px;
+  box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.4);
+  margin: 10px; /* Espaçamento entre os botões */
+  flex-direction: row; /* Garante que o texto fique alinhado horizontalmente */
+  justify-content: space-between;
+  flex-wrap: nowrap; /* Impede que os botões quebrem em várias linhas */
 }
 
 /* Efeito hover para TODOS os botões */
 .intro-screen button:hover,
 .botoes-oraculo button:hover {
-  background-color: #2c2c2c; /* Cor de fundo ao passar o mouse */
-  color: #ffd700; /* Cor do texto ao passar o mouse */
-  transform: scale(1.05); /* Aumenta levemente o tamanho do botão */
+  background-color: #2c2c2c;
+  color: #ffd700;
+  transform: scale(1.05);
 }
 
 /* Efeito active para TODOS os botões */
 .intro-screen button:active,
 .botoes-oraculo button:active {
-  transform: scale(0.95); /* Diminui levemente o tamanho do botão ao clicar */
+  transform: scale(0.95);
 }
 
 /* Estilos para a seção do oráculo */
@@ -110,7 +113,7 @@ html {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-between; /* Ajusta o espaçamento vertical */
   align-items: center;
   padding: 40px;
   text-align: center;
@@ -136,10 +139,10 @@ html {
   color: #fdf6e3;
   line-height: 1.5;
   text-align: justify;
-  flex-grow: 1;
+  flex-grow: 1; /* Permite que o texto ocupe o espaço disponível */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
   min-height: 150px;
   width: 100%;
   padding-bottom: 20px;
@@ -159,12 +162,14 @@ html {
 .botoes-oraculo {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* Centraliza os botões */
+  align-items: flex-end; /* Alinha os itens na parte inferior (se houver espaço sobrando) */
   gap: 20px; /* Espaçamento entre os botões */
   margin-top: 20px;
-  opacity: 0; /* Começa invisível */
-  pointer-events: none; /* Impede interações */
+  opacity: 0; /* Começa invisível (controlado pelo JS) */
+  pointer-events: none; /* Impede interações (controlado pelo JS) */
   transition: opacity 0.5s ease-in-out;
+  width: 100%; /* Garante que o container ocupe a largura total para centralização */
 }
 
 .botoes-oraculo.visible {
@@ -172,9 +177,39 @@ html {
   pointer-events: auto;
 }
 
-/* Estilo para o botão "Pular Diálogos" */
+/* **NOVO/ATUALIZADO:** Estilo para o botão "Pular Diálogos" */
 #skip-btn {
-  /* ele herdará os estilos base dos botões. */
+  order: 99; /* Garante que ele fique por último (no canto) */
+  margin-top: 40px; /* Empurra ele mais para baixo/longe dos outros */
+  background-color: rgba(255, 217, 0, 0.05); /* Fundo mais transparente */
+  color: #d4e4cd; /* Cor do texto original */
+  border: 0.5px solid rgba(255, 215, 0, 0.3); /* Borda mais suave */
+  font-size: 1em; /* Fonte um pouco menor */
+  padding: 8px 15px; /* Padding menor */
+  min-width: 140px; /* Largura mínima menor */
+  box-shadow: none; /* Remove a sombra para menos destaque */
+  opacity: 0.7; /* Menos opaco para ser mais sutil */
+}
+
+#skip-btn:hover {
+  background-color: rgba(
+    44,
+    44,
+    44,
+    0.4
+  ); /* Hover um pouco mais escuro, mas ainda sutil */
+  color: #ffd700;
+  border-color: #ffd700;
+  transform: scale(1.02); /* Aumento menor no hover */
+  opacity: 1; /* Opacidade total no hover */
+}
+
+/* **NOVO/ATUALIZADO:** Alinhamento específico para Avançar e Voltar ao Menu Principal */
+.botoes-oraculo #avancar-btn,
+.botoes-oraculo #voltar-menu-btn {
+  flex-grow: 1; /* Permite que eles cresçam para preencher o espaço */
+  max-width: 250px; /* Limita a largura para que não fiquem muito grandes */
+  margin: 10px; /* Espaçamento entre eles */
 }
 
 /* Estilos para o rodapé do jogo */
@@ -206,7 +241,7 @@ html {
   color: #fde68a;
 }
 
-/* Responsividade (Organizei em ordem crescente de max-width ou min-width) */
+/* Responsividade */
 @media (max-width: 480px) {
   .intro-screen h1 {
     font-size: 2em;
@@ -216,12 +251,11 @@ html {
   }
   .intro-screen button,
   .botoes-oraculo button {
-    /* Ajuste para todos os botões em mobile */
     padding: 8px 16px;
     font-size: 0.9em;
-    min-width: unset; /* Remove min-width para mobile para melhor ajuste */
-    width: 90%; /* Ocupa mais largura */
-    margin: 8px 0; /* Espaçamento menor vertical */
+    min-width: unset;
+    width: 90%;
+    margin: 8px 0;
   }
 
   .oraculo-intro {
@@ -239,6 +273,20 @@ html {
   .botoes-oraculo {
     flex-direction: column;
     gap: 10px;
+  }
+  /* Ajuste para mobile para o botão skip */
+  #skip-btn {
+    order: unset; /* Remove a ordem específica em mobile */
+    margin-top: 15px;
+    width: 90%; /* Volta a ocupar a largura total */
+    min-width: unset;
+  }
+  /* Ajuste para mobile para os botões Avançar/Voltar */
+  .botoes-oraculo #avancar-btn,
+  .botoes-oraculo #voltar-menu-btn {
+    max-width: unset;
+    width: 90%;
+    margin: 8px 0;
   }
   .game-footer {
     font-size: 0.7em;
@@ -298,7 +346,6 @@ html {
   }
 }
 
-/* Estilos para telas maiores (desktop) - Base inicial */
 @media (min-width: 1025px) {
   .intro-screen h1 {
     font-size: 3.5em;
