@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const iniciarJornadaBtn = document.getElementById("iniciar-jornada-btn");
   const botoesOraculoContainer = document.querySelector(".botoes-oraculo");
 
-  // **NOVOS BOTOES**
+  // Botões de controle
   const skipBtn = document.getElementById("skip-btn");
   const sairIntroBtn = document.getElementById("sair-intro-btn");
   const sairOraculoBtn = document.getElementById("sair-oraculo-btn");
@@ -47,7 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Função para mostrar o próximo parágrafo
   function showNextParagraph() {
     if (typingTimeout) clearTimeout(typingTimeout);
-    botoesOraculoContainer.classList.remove("visible"); // Esconde os botões no início de cada diálogo
+    // Remove a classe 'visible' dos botões do oráculo, para que eles reapareçam apenas no final dos diálogos
+    botoesOraculoContainer.classList.remove("visible");
 
     if (currentIndex < dialogos.length) {
       const currentText = dialogos[currentIndex];
@@ -75,14 +76,18 @@ document.addEventListener("DOMContentLoaded", () => {
         dialogoTextoAtual.innerHTML = "";
         typeWriter(currentText, dialogoTextoAtual, () => {
           currentIndex++;
-          setTimeout(showNextParagraph, paragraphDelay);
+          // Se não for o último diálogo, adicione o atraso
+          if (currentIndex < dialogos.length) {
+            setTimeout(showNextParagraph, paragraphDelay);
+          } else {
+            // Se for o último, mostra os botões de controle
+            botoesOraculoContainer.classList.add("visible");
+          }
         });
       }
     } else {
-      // Todos os parágrafos foram exibidos, mostra os botões
+      // Todos os parágrafos foram exibidos, mostra os botões de controle
       botoesOraculoContainer.classList.add("visible");
-      // O botão "Skip" pode ser escondido aqui, se desejar que ele só funcione durante a digitação
-      // skipBtn.style.display = 'none';
     }
   }
 
@@ -111,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function exitGame() {
     // Redireciona para a página inicial do seu jogo.
     // Substitua 'index.html' pelo nome do seu arquivo de página inicial, se for diferente.
-    window.location.href = "index.html";
+    window.location.href = "index.html"; //
   }
 
   // === Lógica de Transição entre Telas ===
@@ -128,6 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
       oraculoIntro.style.opacity = 0;
       oraculoIntro.style.pointerEvents = "auto";
 
+      // ajuste pra que o botão de pular diálogos seja visível desde o início da tela do oráculo
+      skipBtn.style.display = "block"; // Ou 'inline-block' dependendo do seu layout desejado
+
       setTimeout(() => {
         oraculoIntro.style.opacity = 1;
         showNextParagraph(); // Inicia a digitação do texto do oráculo
@@ -135,12 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
   });
 
-  // Event Listeners para os NOVOS botões
-  skipBtn.addEventListener("click", skipDialogs); // Adiciona o evento ao botão Pular
-  sairIntroBtn.addEventListener("click", exitGame); // Adiciona o evento ao botão Sair da introdução
-  sairOraculoBtn.addEventListener("click", exitGame); // Adiciona o evento ao botão Sair do oráculo
+  // Event Listeners para os botões
+  skipBtn.addEventListener("click", skipDialogs);
+  sairIntroBtn.addEventListener("click", exitGame);
+  sairOraculoBtn.addEventListener("click", exitGame);
 
-  // Evento para o botão "Avançar"
+  // Evento para o botão "Avançar" (para continuar ou avançar para próxima etapa)
   avancarBtn.addEventListener("click", () => {
     alert("Jornada Avançando!");
     // Lógica para a próxima fase do jogo
@@ -149,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Evento para o botão "Voltar ao Menu Principal" - CORRIGIDO
   voltarMenuBtn.addEventListener("click", () => {
     alert("Voltando ao Menu Principal!");
-    // Redireciona para a página inicial do jogo
-    window.location.href = "index.html"; // **CORREÇÃO AQUI**
+    window.location.href = "index.html"; //
   });
 });
