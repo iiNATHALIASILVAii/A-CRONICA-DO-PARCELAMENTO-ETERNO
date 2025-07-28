@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Responsividade -->
     <title>Nova Jornada</title>
-    <!-- Título da página -->
     <link rel="stylesheet" href="nova_jornada.css" />
     <!-- Link para o arquivo CSS -->
     <link
@@ -39,39 +38,17 @@
       <section class="intro-screen active">
         <h1>O Grimório das Tarefas Esquecidas</h1>
         <!-- Tela de introdução -->
-         <p>
-          "Desperte, jovem aprendiz. Sua jornada começa agora."
-         </p>
-         <button id="iniciar-jornada-btn">Iniciar Jornada</button>
+        <p>"Desperte, jovem aprendiz. Sua jornada começa agora."</p>
+        <button id="iniciar-jornada-btn">Iniciar Jornada</button>
         <!-- Botão para iniciar a jornada -->
       </section>
       <section class="oraculo-intro">
-        <div class="fala-oraculo">
-          <p class="dialogo-oraculo">
-            O tempo escapando pelos dedos, a lista de afazeres crescendo como
-            trepadeiras selvagens...
-          </p>
-          <p class="dialogo-oraculo">
-            Sim, jovem aprendiz. Você foi convocado(a). Não pelo acaso, mas pelo
-            chamamento do Grimório das Tarefas Esquecidas.
-          </p>
-          <p class="dialogo-oraculo">
-            Seu mundo está em desequilíbrio. A procrastinação é uma criatura
-            astuta... e o Tempo, uma entidade que não perdoa.
-          </p>
-          <p class="dialogo-oraculo destaque" id="esperança-texto">
-            <strong>Mas há esperança!</strong>
-          </p>
-          <p class="dialogo-oraculo">
-            Juntos, resgataremos tarefas perdidas, converteremos esforços em
-            energia, e reconstruiremos sua historia - Uma realização de cada
-            vez.
-          </p>
-          <p class="dialogo-oraculo">
-            Respire fundo, jovem. A jornada começa agora. O Grimório aguarda sua
-            mão firme e seu coração decidido.
-          </p>
+        <div class="dialogo-texto-atual" aria-live="polite"></div>
+        <div class="botoes-oraculo">
           <button id="avancar-btn" style="display: none">Avançar</button>
+          <button id="voltar-menu-btn" style="display: none">
+            Voltar ao Menu Principal
+          </button>
         </div>
       </section>
 
