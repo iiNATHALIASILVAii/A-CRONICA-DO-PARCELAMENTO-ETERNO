@@ -1,3 +1,10 @@
+/*Reset CSS para garantir consistência entre navegadores */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body,
 html {
   margin: 0;
@@ -90,6 +97,13 @@ html {
 
 .game-header p span:first-child {
   margin-bottom: 0; /* Remove margem inferior do primeiro span */
+}
+
+/* Adiciona um ícone de estrela ao título do cabeçalho */
+.game-header h1::after {
+  content: " ✨";
+  margin-left: 10px;
+  color: #ffd700;
 }
 
 /* Estilos para o menu principal */
