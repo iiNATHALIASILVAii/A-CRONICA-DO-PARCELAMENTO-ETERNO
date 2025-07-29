@@ -99,13 +99,6 @@ html {
   margin-bottom: 0; /* Remove margem inferior do primeiro span */
 }
 
-/* Adiciona um ícone de estrela ao título do cabeçalho */
-.game-header h1::after {
-  content: " ✨";
-  margin-left: 10px;
-  color: #ffd700;
-}
-
 /* Estilos para o menu principal */
 .main-menu {
   flex-grow: 1; /* Permite que o menu ocupe o espaço restante */
