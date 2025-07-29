@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Função para SAIR do jogo (redireciona para a página inicial)
   function exitGame() {
-    window.location.href = "cartalia.html";
+    window.location.href = "index.html";
   }
 
   // === Lógica de Transição entre Telas ===
