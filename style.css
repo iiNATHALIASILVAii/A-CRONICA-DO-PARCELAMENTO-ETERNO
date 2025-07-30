@@ -13,14 +13,8 @@ html {
   overflow: hidden; /* Impede a rolagem da página */
   font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
   color: white; /* Cor do texto */
-  image-rendering: optimizeSpeed; /* Para navegadores antigos */
-  image-rendering: -moz-crisp-edges; /* Firefox */
-  image-rendering: -webkit-optimize-contrast; /* Webkit (Chrome, Safari) */
-  image-rendering: optimize-contrast; /* IE6-9 */
   image-rendering: pixelated; /* Modern browsers (Chrome, Edge, Firefox) */
   -webkit-font-smoothing: antialiased; /* Chrome, Safari */
-  -webkit-font-smoothing: none; /* Chrome, Safari */
-  -moz-osx-font-smoothing: grayscale; /* Firefox */
 }
 
 .game-container {
@@ -119,7 +113,7 @@ html {
   justify-content: center; /* Centraliza os botões */
   gap: 30px; /* Espaçamento entre os botões */
   max-width: 90%; /* Largura máxima do menu */
-  min-width: 280px; /* Largura mínima do menu */
+  min-width: 250px; /* Largura mínima do menu */
   flex-wrap: wrap; /* Permite quebra de linha se necessário */
 }
 
@@ -191,7 +185,8 @@ html {
   }
 
   .main-menu ul {
-    flex-direction: column; /* Coloca os botões em coluna em telas menores */
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
+    justify-content: center; /* Centraliza os botões */
     gap: 15px; /* Espaçamento entre os botões */
     max-width: 80%; /* Largura máxima do menu */
   }

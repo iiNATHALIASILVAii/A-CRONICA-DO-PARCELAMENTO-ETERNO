@@ -1,5 +1,5 @@
 /*Reset CSS para garantir consistência entre navegadores */
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -115,8 +115,8 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 15;
+  transform: translate(-50%, -50%); /* Centraliza a caixa de diálogo */
+  z-index: 15; /* Garante que o oráculo fique acima de outros elementos */
 
   display: flex;
   flex-direction: column;
@@ -131,7 +131,7 @@ html {
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(3px) brightness(0.6);
   border-radius: 15px;
-  line-height: 1.6;
+  line-height: 1.63;
   box-sizing: border-box;
 }
 
@@ -153,6 +153,7 @@ html {
   min-height: 150px;
   width: 100%;
   padding-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 /* Estilo para "Mas há esperança!" */
@@ -172,7 +173,6 @@ html {
   justify-content: center; /* Centraliza os botões */
   align-items: flex-end; /* Alinha os itens na parte inferior (se houver espaço sobrando) */
   gap: 20px; /* Espaçamento entre os botões */
-  margin-top: 20px;
   opacity: 0; /* Começa invisível (controlado pelo JS) */
   pointer-events: none; /* Impede interações (controlado pelo JS) */
   transition: opacity 0.5s ease-in-out;
@@ -214,7 +214,7 @@ html {
 /* **NOVO/ATUALIZADO:** Alinhamento específico para Avançar e Voltar ao Menu Principal */
 .botoes-oraculo #avancar-btn,
 .botoes-oraculo #voltar-menu-btn {
-  flex-grow: 1; /* Permite que eles cresçam para preencher o espaço */
+  flex-basis: 45%; /* Cada botão ocupa 45% do espaço disponível */
   max-width: 250px; /* Limita a largura para que não fiquem muito grandes */
   margin: 10px; /* Espaçamento entre eles */
 }
@@ -268,11 +268,12 @@ html {
   .oraculo-intro {
     padding: 20px;
     font-size: 1em;
-    height: 250px;
+    min-height: 200px; /* Altura mínima para a caixa de diálogo */
   }
   .dialogo-texto-atual {
     font-size: 1.1em;
     min-height: 100px;
+    margin-bottom: 15px; /* Ajuste margem mobile */
   }
   .destaque-esperanca {
     font-size: 1.4em;
@@ -291,8 +292,8 @@ html {
   /* Ajuste para mobile para os botões Avançar/Voltar */
   .botoes-oraculo #avancar-btn,
   .botoes-oraculo #voltar-menu-btn {
-    max-width: unset;
-    width: 90%;
+    flex-basis: 100%; /* Cada botão ocupa 100% do espaço disponível */
+    max-width: unset; /* Remove o limite de largura */
     margin: 8px 0;
   }
   .game-footer {
