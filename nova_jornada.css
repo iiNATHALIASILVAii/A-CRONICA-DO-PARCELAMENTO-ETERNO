@@ -9,7 +9,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100dvh;
   font-family: "Lora", serif;
   color: white;
   -webkit-font-smoothing: antialiased;
@@ -87,10 +87,7 @@ html {
   text-align: center;
   letter-spacing: 1px;
   box-shadow: 4px 4px 9px rgba(0, 0, 0, 0.4);
-  margin: 10px; /* Espaçamento entre os botões */
-  flex-direction: row; /* Garante que o texto fique alinhado horizontalmente */
-  justify-content: space-evenly; /* Distribui o espaço entre os botões */
-  flex-wrap: nowrap; /* Impede que os botões quebrem em várias linhas */
+  margin: 5px; /* Espaçamento entre os botões */
 }
 
 /* Efeito hover para TODOS os botões */
@@ -171,8 +168,8 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: center; /* Centraliza os botões */
-  align-items: flex-end; /* Alinha os itens na parte inferior (se houver espaço sobrando) */
-  gap: 20px; /* Espaçamento entre os botões */
+  align-items: center; /* Centraliza os botões verticalmente */
+  gap: 15px; /* Espaçamento entre os botões */
   opacity: 0; /* Começa invisível (controlado pelo JS) */
   pointer-events: none; /* Impede interações (controlado pelo JS) */
   transition: opacity 0.5s ease-in-out;
@@ -184,18 +181,17 @@ html {
   pointer-events: auto;
 }
 
-/* **NOVO/ATUALIZADO:** Estilo para o botão "Pular Diálogos" */
+/* **ATUALIZADO:** Estilo para o botão "Pular Diálogos" */
 #skip-btn {
-  order: 99; /* Garante que ele fique por último (no canto) */
-  margin-top: 40px; /* Empurra ele mais para baixo/longe dos outros */
   background-color: rgba(255, 217, 0, 0.05); /* Fundo mais transparente */
   color: #d4e4cd; /* Cor do texto original */
   border: 0.5px solid rgba(255, 215, 0, 0.3); /* Borda mais suave */
-  font-size: 1em; /* Fonte um pouco menor */
+  font-size: 0.8em; /* Fonte um pouco menor */
   padding: 8px 15px; /* Padding menor */
   min-width: 140px; /* Largura mínima menor */
   box-shadow: none; /* Remove a sombra para menos destaque */
   opacity: 0.7; /* Menos opaco para ser mais sutil */
+  margin-top: 10px; /* Espaçamento superior */
 }
 
 #skip-btn:hover {
@@ -216,7 +212,6 @@ html {
 .botoes-oraculo #voltar-menu-btn {
   flex-basis: 45%; /* Cada botão ocupa 45% do espaço disponível */
   max-width: 250px; /* Limita a largura para que não fiquem muito grandes */
-  margin: 10px; /* Espaçamento entre eles */
 }
 
 /* Estilos para o rodapé do jogo */
@@ -261,8 +256,18 @@ html {
     padding: 8px 16px;
     font-size: 0.9em;
     min-width: unset;
-    width: 90%;
     margin: 8px 0;
+  }
+
+  .main-menu ul {
+    flex-direction: column; /* Coloca os botões em coluna em telas menores */
+    gap: 10px; /* Espaçamento entre os botões */
+  }
+
+  .main-menu button {
+    padding: 8px 20px; /* Reduz o padding dos botões */
+    font-size: 1em; /* Tamanho da fonte dos botões */
+    min-width: unset; /* Remove a largura mínima dos botões */
   }
 
   .oraculo-intro {
@@ -279,12 +284,12 @@ html {
     font-size: 1.4em;
   }
   .botoes-oraculo {
-    flex-direction: column;
+    flex-direction: column; /* Coloca os botões em coluna em telas menores */
     gap: 10px;
+    align-items: center; /* Centraliza os botões */
   }
   /* Ajuste para mobile para o botão skip */
   #skip-btn {
-    order: unset; /* Remove a ordem específica em mobile */
     margin-top: 15px;
     width: 90%; /* Volta a ocupar a largura total */
     min-width: unset;
@@ -294,11 +299,11 @@ html {
   .botoes-oraculo #voltar-menu-btn {
     flex-basis: 100%; /* Cada botão ocupa 100% do espaço disponível */
     max-width: unset; /* Remove o limite de largura */
-    margin: 8px 0;
   }
   .game-footer {
     font-size: 0.7em;
     letter-spacing: 2px;
+    padding: 2px;
   }
 }
 
@@ -312,6 +317,20 @@ html {
   .intro-screen button,
   .botoes-oraculo button {
     margin-top: 15px;
+    flex-basis: 100%; /* Cada botão ocupa 100% do espaço disponível */
+    max-width: 300px; /* Limita a largura para que não fiquem muito grandes */
+    padding: 10px 20px; /* Ajusta o padding para telas médias */
+  }
+  .main-menu ul {
+    flex-direction: row; /* Coloca os botões em linha em telas médias */
+    justify-content: center; /* Centraliza os botões */
+    flex-wrap: wrap; /* Permite quebra de linha se necessário */
+  }
+
+  .main-menu button {
+    padding: 10px 20px; /* Reduz o padding dos botões */
+    font-size: 1.1em; /* Tamanho da fonte dos botões */
+    min-width: 180px; /* Largura mínima dos botões */
   }
 
   .oraculo-intro {
@@ -326,9 +345,26 @@ html {
   .destaque-esperanca {
     font-size: 1.6em;
   }
+  .botoes-oraculo {
+    flex-direction: row; /* Coloca os botões em linha em telas médias */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; /* Centraliza os botões verticalmente */
+  }
   .botoes-oraculo button {
-    padding: 10px 18px;
-    font-size: 1em;
+    margin: 0;
+  }
+  .botoes-oraculo #avancar-btn,
+  .botoes-oraculo #voltar-menu-btn {
+    flex-basis: auto; /* Permite que os botões ocupem o espaço necessário */
+    max-width: 200px; /* Limita a largura para que não fiquem muito grandes */
+    min-width: 160px; /* Largura mínima para os botões */
+  }
+  /* Ajuste para mobile para o botão skip */
+  #skip-btn {
+    margin-top: 20px;
+    width: 80%; /* Volta a ocupar a largura total */
+    min-width: unset; /* Remove o limite de largura */
   }
 }
 
@@ -352,6 +388,18 @@ html {
   .destaque-esperanca {
     font-size: 2em;
   }
+  .botoes-oraculo {
+    flex-direction: row; /* Coloca os botões em linha em telas médias */
+    flex-wrap: nowrap; /* Tenta manter os botões em uma linha */
+    justify-content: center;
+    align-items: center; /* Centraliza os botões verticalmente */
+  }
+  .botoes-oraculo #avancar-btn,
+  .botoes-oraculo #voltar-menu-btn {
+    flex-basis: auto; /* Permite que os botões ocupem o espaço necessário */
+    max-width: 250px; /* Limita a largura para que não fiquem muito grandes */
+    min-width: 180px; /* Largura mínima para os botões */
+  }
 }
 
 @media (min-width: 1025px) {
@@ -365,6 +413,26 @@ html {
     max-width: 800px;
     height: 350px;
     font-size: 1.2em;
+  }
+  .botoes-oraculo {
+    flex-direction: row; /* Coloca os botões em linha em telas grandes */
+    flex-wrap: nowrap; /* Tenta manter os botões em uma linha */
+    justify-content: center;
+    align-items: center; /* Centraliza os botões verticalmente */
+  }
+  .botoes-oraculo #avancar-btn,
+  .botoes-oraculo #voltar-menu-btn {
+    flex-basis: auto; /* Permite que os botões ocupem o espaço necessário */
+    max-width: 300px; /* Limita a largura para que não fiquem muito grandes */
+    min-width: 200px; /* Largura mínima para os botões */
+  }
+  #skip-btn {
+    margin-left: auto; /* Alinha o botão "Pular Diálogos" à direita */
+    margin-right: 0; /* Espaço à direita */
+    padding: 10px 20px; /* Ajusta o padding para telas grandes */
+    width: auto; /* Largura automática */
+    min-width: 180px; /* Largura mínima para o botão */
+    margin-top: 30px; /* Espaçamento superior */
   }
   .dialogo-texto-atual {
     font-size: 1.4em;

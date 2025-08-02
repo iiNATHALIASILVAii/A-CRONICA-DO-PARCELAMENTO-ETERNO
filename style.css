@@ -9,7 +9,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100dvh; /* Altura total da viewport */
   overflow: hidden; /* Impede a rolagem da página */
   font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
   color: white; /* Cor do texto */
@@ -215,12 +215,21 @@ html {
     flex-direction: column; /* Coloca os botões em coluna em telas menores */
     gap: 15px; /* Espaçamento entre os botões */
     max-width: 90%; /* Largura máxima do menu */
+    align-items: center;
   }
 
   .main-menu button {
     padding: 8px 20px; /* Reduz o padding dos botões */
     font-size: 1em; /* Tamanho da fonte dos botões */
     min-width: 180px; /* Largura mínima dos botões */
+  }
+  .game-container {
+    padding: 20px 0; /* Aumenta o padding do container em telas menores */
+  }
+  .game-footer {
+    font-size: 0.7em; /* Tamanho da fonte do rodapé em telas menores */
+    letter-spacing: 3px; /* Espaçamento entre letras no rodapé */
+    margin-bottom: 1em; /* Espaçamento inferior do rodapé */
   }
 }
 
@@ -239,6 +248,7 @@ html {
 
   .main-menu ul {
     gap: 10px; /* Espaçamento entre os botões */
+    align-items: center; /* Centraliza os botões */
   }
 
   .main-menu button {
@@ -249,5 +259,10 @@ html {
 
   .game-container {
     padding: 10px 0; /* Reduz o padding do container em telas pequenas */
+  }
+  .game-footer {
+    font-size: 0.6em; /* Tamanho da fonte do rodapé em telas pequenas */
+    letter-spacing: normal; /* Remove espaçamento entre letras no rodapé */
+    margin-bottom: 0.5em; /* Reduz o espaçamento inferior do rodapé */
   }
 }
