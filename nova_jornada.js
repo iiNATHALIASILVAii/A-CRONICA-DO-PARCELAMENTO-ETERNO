@@ -1,25 +1,41 @@
+// APLICAR AS CORREÇÕES E MELHORIAS NO SEU nova_jornada.js
 document.addEventListener("DOMContentLoaded", () => {
+  // Elementos DOM
+  const musicaInicio = document.getElementById("musica-inicio");
+  const introScreen = document.querySelector(".intro-screen");
+  const oraculoIntro = document.querySelector(".oraculo-intro");
+  const dialogoTextoAtual = document.querySelector(".dialogo-texto-atual");
+  const avancarBtn = document.getElementById("avancar-btn");
+  const voltarMenuBtn = document.getElementById("voltar-menu-btn");
+  const iniciarJornadaBtn = document.getElementById("iniciar-jornada-btn");
+  const botoesOraculoContainer = document.querySelector(".botoes-oraculo");
+  const skipBtn = document.getElementById("skip-btn");
+  const sairIntroBtn = document.getElementById("sair-intro-btn");
+
+  // Configuração inicial da música
+  if (musicaInicio) {
+    // Verifica se o elemento de áudio existe
+    musicaInicio.volume = 0.5; // Define o volume da música de fundo
+
+    // Tentar tocar a música no carregamento com "muted", para contornar o autoplay policy
+    // Se não funcionar, o play será disparado no primeiro clique do usuário
+    musicaInicio.play().catch((error) => {
+      console.warn(
+        "Música inicial não pôde ser reproduzida automaticamente (autoplay policy).",
+        error
+      );
+      // Aqui você pode adicionar lógica para informar o usuário a interagir
+    });
+  }
+
   const dialogos = [
     "O tempo escapando pelos dedos, a lista de afazeres crescendo como trepadeiras selvagens...",
-    "Sim, jovem aprendiz. Você foi convocado(a). Não pelo acaso, mas pelo chamamento do Grimório das Tarefas Esquecidas.",
+    "Sim, jovem aprendiz. Você foi convocado. Não pelo acaso, mas pelo chamamento do Grimório das Tarefas Esquecidas.",
     "Seu mundo está em desequilíbrio. A procrastinação é uma criatura astuta... e o Tempo, uma entidade que não perdoa.",
     "Mas há esperança!",
     "Juntos, resgataremos tarefas perdidas, converteremos esforços em energia, e reconstruiremos sua historia - Uma realização de cada vez.",
     "Respire fundo, jovem. A jornada começa agora. O Grimório aguarda sua mão firme e seu coração decidido.",
   ];
-
-  // Elementos DOM
-  const dialogoTextoAtual = document.querySelector(".dialogo-texto-atual");
-  const avancarBtn = document.getElementById("avancar-btn");
-  const voltarMenuBtn = document.getElementById("voltar-menu-btn");
-  const introScreen = document.querySelector(".intro-screen");
-  const oraculoIntro = document.querySelector(".oraculo-intro");
-  const iniciarJornadaBtn = document.getElementById("iniciar-jornada-btn");
-  const botoesOraculoContainer = document.querySelector(".botoes-oraculo");
-
-  // Botões de controle
-  const skipBtn = document.getElementById("skip-btn");
-  const sairIntroBtn = document.getElementById("sair-intro-btn");
 
   let currentIndex = 0;
   let typingTimeout;
@@ -46,22 +62,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Função para controlar a visibilidade dos botões de ação (Avançar, Voltar ao Menu)
   function setActionButtonsVisibility(visible) {
-    avancarBtn.style.visibility = visible ? "visible" : "hidden";
-    voltarMenuBtn.style.visibility = visible ? "visible" : "hidden";
+    // Garante que os botões existam antes de manipular o estilo
+    if (avancarBtn)
+      avancarBtn.style.visibility = visible ? "visible" : "hidden";
+    if (voltarMenuBtn)
+      voltarMenuBtn.style.visibility = visible ? "visible" : "hidden";
   }
 
   // Função para mostrar o próximo parágrafo
   function showNextParagraph() {
     clearTimeout(typingTimeout);
 
-    // No início de cada parágrafo (exceto o último), esconde os botões de ação e mostra o Pular Diálogos
     if (currentIndex < dialogos.length) {
-      // Se ainda há diálogos para exibir
+      // Se ainda há diálogos para exibir, esconde os botões de ação e mostra o Pular Diálogos
       setActionButtonsVisibility(false);
-      skipBtn.style.visibility = "visible";
-    }
+      if (skipBtn) skipBtn.style.visibility = "visible";
 
-    if (currentIndex < dialogos.length) {
       const currentText = dialogos[currentIndex];
 
       if (currentText === "Mas há esperança!") {
@@ -92,14 +108,14 @@ document.addEventListener("DOMContentLoaded", () => {
           } else {
             // Se é o último diálogo, mostra os botões de ação e esconde o Pular Diálogos
             setActionButtonsVisibility(true);
-            skipBtn.style.visibility = "hidden";
+            if (skipBtn) skipBtn.style.visibility = "hidden";
           }
         });
       }
     } else {
       // Já passou por todos os diálogos ou pulou, exibe os botões de ação e esconde o Pular Diálogos
       setActionButtonsVisibility(true);
-      skipBtn.style.visibility = "hidden";
+      if (skipBtn) skipBtn.style.visibility = "hidden";
     }
   }
 
@@ -124,49 +140,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Mostra os botões de ação e esconde o Pular Diálogos
     setActionButtonsVisibility(true);
-    skipBtn.style.visibility = "hidden";
+    if (skipBtn) skipBtn.style.visibility = "hidden";
   }
 
   // Função para SAIR do jogo (redireciona para a página inicial)
   function exitGame() {
+    // Parar a música antes de sair, se estiver tocando
+    if (musicaInicio && !musicaInicio.paused) {
+      musicaInicio.pause();
+      musicaInicio.currentTime = 0;
+    }
     window.location.href = "index.html";
   }
 
   // === Lógica de Transição entre Telas ===
 
-  introScreen.classList.add("active");
+  // Garante que a tela de introdução esteja ativa ao carregar
+  if (introScreen) {
+    introScreen.classList.add("active");
+  }
 
-  iniciarJornadaBtn.addEventListener("click", () => {
-    introScreen.style.opacity = 0;
-    introScreen.style.pointerEvents = "none";
+  if (iniciarJornadaBtn) {
+    iniciarJornadaBtn.addEventListener("click", () => {
+      // Se a música estiver mutada ou pausada, tentar desmutar e tocar aqui
+      if (musicaInicio) {
+        musicaInicio.muted = false; // Desmuta a música
+        musicaInicio.play().catch((error) => {
+          console.error("Erro ao reproduzir a música após interação:", error);
+        });
+      }
 
-    setTimeout(() => {
-      introScreen.classList.remove("active");
-      oraculoIntro.classList.add("active");
-      oraculoIntro.style.opacity = 0;
-      oraculoIntro.style.pointerEvents = "auto";
-
-      // Garante que o container dos botões do oráculo esteja visível
-      botoesOraculoContainer.classList.add("visible");
-      // Inicialmente, apenas o botão Pular Diálogos deve estar visível
-      setActionButtonsVisibility(false); // Esconde Avançar e Voltar
-      skipBtn.style.visibility = "visible"; // Mostra Pular Diálogos
+      if (introScreen) {
+        introScreen.style.opacity = 0;
+        introScreen.style.pointerEvents = "none";
+      }
 
       setTimeout(() => {
-        oraculoIntro.style.opacity = 1;
-        showNextParagraph(); // Inicia a digitação do texto do oráculo
-      }, 50);
-    }, 1000);
-  });
+        if (introScreen) introScreen.classList.remove("active");
+        if (oraculoIntro) {
+          oraculoIntro.classList.add("active");
+          oraculoIntro.style.opacity = 0;
+          oraculoIntro.style.pointerEvents = "auto";
+        }
+
+        // Garante que o container dos botões do oráculo esteja visível
+        if (botoesOraculoContainer)
+          botoesOraculoContainer.classList.add("visible");
+        // Inicialmente, apenas o botão Pular Diálogos deve estar visível
+        setActionButtonsVisibility(false); // Esconde Avançar e Voltar
+        if (skipBtn) skipBtn.style.visibility = "visible"; // Mostra Pular Diálogos
+
+        setTimeout(() => {
+          if (oraculoIntro) oraculoIntro.style.opacity = 1;
+          showNextParagraph(); // Inicia a digitação do texto do oráculo
+        }, 50);
+      }, 1000);
+    });
+  }
 
   // Event Listeners para os botões
-  skipBtn.addEventListener("click", skipDialogs);
-  sairIntroBtn.addEventListener("click", exitGame);
-  voltarMenuBtn.addEventListener("click", exitGame); // "Voltar ao Menu Principal" agora funciona como "Sair"
+  if (skipBtn) skipBtn.addEventListener("click", skipDialogs);
+  if (sairIntroBtn) sairIntroBtn.addEventListener("click", exitGame);
+  if (voltarMenuBtn) voltarMenuBtn.addEventListener("click", exitGame); // "Voltar ao Menu Principal" agora funciona como "Sair"
 
   // Evento para o botão "Avançar"
-  avancarBtn.addEventListener("click", () => {
-    alert("Jornada Avançando!");
-    // Lógica para a próxima fase do jogo
-  });
-});
+  if (avancarBtn) {
+    avancarBtn.addEventListener("click", () => {
+      alert("Jornada Avançando!");
+      // Lógica para a próxima fase do jogo
+      // Exemplo: mudar para outra música se for uma fase diferente
+      // if (musicaInicio) {
+      //   musicaInicio.src = 'soundtrack/musica_fase2.mp3'; // Supondo que você tenha outra música
+      //   musicaInicio.load();
+      //   musicaInicio.play().catch(e => console.error("Erro ao tocar música da fase 2:", e));
+      // }
+    });
+  }
+}); // Fim do DOMContentLoaded
