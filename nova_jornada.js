@@ -1,4 +1,5 @@
-// APLICAR AS CORREÇÕES E MELHORIAS NO SEU nova_jornada.js
+// nova_jornada.js
+// Script para a tela de introdução da nova jornada do jogo
 document.addEventListener("DOMContentLoaded", () => {
   // Elementos DOM
   const musicaInicio = document.getElementById("musica-inicio");
