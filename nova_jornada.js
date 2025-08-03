@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Configuração inicial da música
   if (musicaInicio) {
     // Verifica se o elemento de áudio existe
-    musicaInicio.volume = 0.5; // Define o volume da música de fundo
+    musicaInicio.volume = 0.2; // Define o volume da música de fundo
 
     // Tentar tocar a música no carregamento com "muted", para contornar o autoplay policy
     // Se não funcionar, o play será disparado no primeiro clique do usuário

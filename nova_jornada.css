@@ -15,6 +15,7 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow: hidden;
+  font-size: 16px; /* Define uma base de fonte pra melhorar a estabilidade */
 }
 
 .nova-jornada-container {
@@ -31,6 +32,7 @@ html {
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
+  bottom: 0;
 }
 
 /* Estilos para a tela de Introdução */
@@ -106,30 +108,35 @@ html {
 
 /* Estilos para a seção do oráculo */
 .oraculo-intro {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1s ease-in-out;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centraliza a caixa de diálogo */
   z-index: 15; /* Garante que o oráculo fique acima de outros elementos */
-
+  transform: translate(-50%, -50%); /* Centraliza a caixa de diálogo */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Ajusta o espaçamento vertical */
   align-items: center;
-  padding: 40px;
   text-align: center;
+
+  padding: 40px;
+  padding-bottom: 80px; /* Espaçamento inferior maior para os botões */
+  width: 90%; /* ALTERADO: faz a caixa ocupar 90% do conteiner; mais responsividade */
   max-width: 800px;
-  height: 350px; /* Altura fixa para a caixa de diálogo */
+  height: auto; /* ALTERADO: a altura agr é automatica, se ajustando ao conteudo */
+  min-height: 350px; /* Altura mínima para a caixa de diálogo */
+  box-sizing: border-box;
+  border-radius: 15px;
+
   color: #fdf6e3;
   font-size: 1.2em;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(3px) brightness(0.6);
-  border-radius: 15px;
   line-height: 1.63;
-  box-sizing: border-box;
+
+  backdrop-filter: blur(3px) brightness(0.6); /* Efeito de desfoque e brilho */
+  pointer-events: none;
+  transition: opacity 1s ease-in-out;
+  opacity: 0;
 }
 
 .oraculo-intro.active {
@@ -183,15 +190,19 @@ html {
 
 /* **ATUALIZADO:** Estilo para o botão "Pular Diálogos" */
 #skip-btn {
+  position: absolute; /* Fixa o botão no canto inferior direito */
+  bottom: 25px; /* Espaçamento do fundo */
+  right: 40px; /* Espaçamento da direita */
+  padding: 8px 15px; /* Padding menor */
+  min-width: 140px; /* Largura mínima menor */
+
+  font-size: 0.8em; /* Fonte um pouco menor */
   background-color: rgba(255, 217, 0, 0.05); /* Fundo mais transparente */
   color: #d4e4cd; /* Cor do texto original */
   border: 0.5px solid rgba(255, 215, 0, 0.3); /* Borda mais suave */
-  font-size: 0.8em; /* Fonte um pouco menor */
-  padding: 8px 15px; /* Padding menor */
-  min-width: 140px; /* Largura mínima menor */
+
   box-shadow: none; /* Remove a sombra para menos destaque */
   opacity: 0.7; /* Menos opaco para ser mais sutil */
-  margin-top: 10px; /* Espaçamento superior */
 }
 
 #skip-btn:hover {
@@ -272,8 +283,9 @@ html {
 
   .oraculo-intro {
     padding: 20px;
+    padding-bottom: 60px; /* Ajuste mobile */
     font-size: 1em;
-    min-height: 200px; /* Altura mínima para a caixa de diálogo */
+    min-height: 95%; /* Altura mínima para a caixa de diálogo */
   }
   .dialogo-texto-atual {
     font-size: 1.1em;
@@ -290,9 +302,8 @@ html {
   }
   /* Ajuste para mobile para o botão skip */
   #skip-btn {
-    margin-top: 15px;
-    width: 90%; /* Volta a ocupar a largura total */
-    min-width: unset;
+    bottom: 15px; /* Espaçamento do fundo */
+    right: 20px; /* Espaçamento da direita */
   }
   /* Ajuste para mobile para os botões Avançar/Voltar */
   .botoes-oraculo #avancar-btn,
@@ -334,10 +345,9 @@ html {
   }
 
   .oraculo-intro {
-    max-width: 95%;
     padding: 25px 30px;
     font-size: 1.1em;
-    height: 280px;
+    min-height: 280px; /* Altura mínima para a caixa de diálogo */
   }
   .dialogo-texto-atual {
     font-size: 1.2em;
@@ -377,10 +387,8 @@ html {
   }
 
   .oraculo-intro {
-    max-width: 90%;
     padding: 30px 40px;
     font-size: 1.2em;
-    height: 300px;
   }
   .dialogo-texto-atual {
     font-size: 1.3em;
@@ -410,8 +418,6 @@ html {
     font-size: 1.5em;
   }
   .oraculo-intro {
-    max-width: 800px;
-    height: 350px;
     font-size: 1.2em;
   }
   .botoes-oraculo {
