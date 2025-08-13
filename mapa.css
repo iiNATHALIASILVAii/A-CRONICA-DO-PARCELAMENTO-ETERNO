@@ -1,0 +1,122 @@
+/* Estilo geral da página */
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #a7e6b8; /* cor verde clara para o fundo */
+}
+
+/* Estilo do contêiner do mapa */
+.map-container {
+  width: 100%;
+  margin: 0 auto;
+  border: 5px solid #000; /* borda para o contêiner */
+  position: relative;
+  background-image: url("assets/icons/mapa teste.png"); /* substitua pelo caminho da sua imagem */
+  background-size: cover;
+  height: 600px; /* ajuste a altura conforme necessário */
+}
+
+/* Elementos do mapa (casas, árvores, etc.) */
+.tree {
+  position: absolute;
+  background-image: url("arvore.png"); /* substitua pela imagem da árvore */
+  width: 50px; /* largura da árvore */
+  height: 70px; /* altura da árvore */
+}
+
+.house {
+  position: absolute;
+  background-image: url("casa.png"); /* substitua pela imagem da casa */
+  width: 50px; /* largura da casa */
+  height: 50px; /* altura da casa */
+}
+
+.mountain {
+  position: absolute;
+  background-image: url("montanha.png"); /* substitua pela imagem da montanha */
+  width: 70px; /* largura da montanha */
+  height: 70px; /* altura da montanha */
+}
+
+/* Exemplo de posição para uma árvore, casa e montanha */
+.tree1 {
+  top: 200px; /* ajuste a posição vertical */
+  left: 100px; /* ajuste a posição horizontal */
+}
+
+.house1 {
+  top: 300px; /* ajuste a posição vertical */
+  left: 200px; /* ajuste a posição horizontal */
+}
+
+.mountain1 {
+  top: 400px; /* ajuste a posição vertical */
+  left: 300px; /* ajuste a posição horizontal */
+}
+
+.area {
+  position: absolute;
+  transition: transform 0.2s;
+}
+
+.area:hover {
+  transform: scale(1.1);
+}
+
+/* Defina a posição e tamanho de cada área conforme a imagem do mapa */
+.oracle {
+  top: 50px;
+  left: 350px;
+  width: 100px;
+  height: 100px;
+}
+.book {
+  top: 200px;
+  left: 350px;
+  width: 100px;
+  height: 100px;
+}
+.flora {
+  top: 300px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
+}
+.mentis {
+  top: 300px;
+  left: 450px;
+  width: 100px;
+  height: 100px;
+}
+.ordus {
+  top: 400px;
+  left: 280px;
+  width: 100px;
+  height: 100px;
+}
+.lumen {
+  top: 500px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
+}
+.lux {
+  top: 500px;
+  left: 600px;
+  width: 100px;
+  height: 100px;
+}
+.lucros {
+  top: 600px;
+  left: 280px;
+  width: 100px;
+  height: 100px;
+}
+.devoradores {
+  top: 700px;
+  left: 350px;
+  width: 100px;
+  height: 100px;
+}
+
+/* (Defina outras áreas conforme necessário) */

@@ -1,0 +1,87 @@
+/* Reset CSS para garantir consistência entre navegadores */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100vh; /* Altura total da viewport */
+  overflow: hidden; /* Impede a rolagem da página */
+  font-family: "Lora", serif; /* Fonte serifada para o corpo do texto */
+  color: #f1c056; /* Cor do texto */
+  background-color: rgb(28, 28, 28); /* Cor de fundo */
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.cadastro-container,
+#perguntas-container {
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+  border-radius: 10px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  width: 90%; /* Largura responsiva */
+  max-width: 400px; /* Largura máxima */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para destaque */
+}
+
+h1,
+h2 {
+  text-align: center; /* Centraliza o texto */
+  color: #f1c056; /* Cor do texto do título */
+  margin-bottom: 15px; /* Espaçamento inferior */
+}
+
+label {
+  display: block; /* Cada label em uma nova linha */
+  margin: 10px 0 5px; /* Margens */
+  color: #d4e4cd; /* Cor das labels */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="radio"] {
+  width: 100%; /* Largura total */
+  padding: 10px; /* Espaçamento interno */
+  border: 1px solid #f1c056; /* Borda dourada */
+  border-radius: 5px; /* Bordas arredondadas */
+  background-color: #2c2c2c; /* Cor de fundo dos inputs */
+  color: #fff; /* Cor do texto dos inputs */
+  margin-bottom: 15px; /* Espaçamento inferior */
+}
+
+button {
+  background-color: #f1c056; /* Cor de fundo dos botões */
+  color: #2c2c2c; /* Cor do texto */
+  border: none; /* Remove bordas do botão */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 10px; /* Espaçamento interno */
+  cursor: pointer; /* Mostra que é clicável */
+  font-size: 1em; /* Tamanho da fonte */
+  transition: background-color 0.3s; /* Transição suave para hover */
+  width: 100%; /* Largura total do botão */
+}
+
+button:hover {
+  background-color: #ffd700; /* Cor ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cadastro-container,
+  #perguntas-container {
+    padding: 15px; /* Reduz padding em telas menores */
+  }
+
+  h1,
+  h2 {
+    font-size: 1.5em; /* Reduz tamanho da fonte */
+  }
+
+  button {
+    font-size: 0.9em; /* Reduz tamanho da fonte do botão */
+  }
+}

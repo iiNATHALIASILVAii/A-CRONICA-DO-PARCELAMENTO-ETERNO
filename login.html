@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="login.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="cadastro-container" id="cadastro-container">
+        <h1>Cadastro de Usuário</h1>
+        <form id="formCadastro">
+            <label for="nome">Nome do Usuário:</label>
+            <input type="text" id="nome" required />
+
+            <label for="nickname">Nickname:</label>
+            <input type="text" id="nickname" required />
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" required />
+
+            <button type="submit">Avançar</button>
+        </form>
+    </div>
+
+    <div class="cadastro-container" id="perguntas-container" style="display: none">
+        <h2>Responda às perguntas abaixo:</h2>
+        <form id="formPerguntas">
+            <p>1. O que você prefere fazer em seu tempo livre?</p>
+            <label>
+                <input type="radio" name="tempo" value="atividades físicas" required /> Atividades físicas
+            </label>
+            <label>
+                <input type="radio" name="tempo" value="estudar" /> Estudar
+            </label>
+            <label>
+                <input type="radio" name="tempo" value="organizar" /> Organizar
+            </label>
+            <label>
+                <input type="radio" name="tempo" value="auto-cuidado" /> Cuidar de si mesmo
+            </label>
+            <label>
+                <input type="radio" name="tempo" value="tecnologia" /> Trabalhar com tecnologia
+            </label>
+            <label>
+                <input type="radio" name="tempo" value="finanças" /> Gerenciar finanças
+            </label>
+
+            <button type="submit">Finalizar Cadastro</button>
+        </form>
+
+        <button id="voltar-menu-btn" class="voltar-btn">Voltar ao Menu Principal</button>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

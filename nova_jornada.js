@@ -207,14 +207,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Evento para o botão "Avançar"
   if (avancarBtn) {
     avancarBtn.addEventListener("click", () => {
-      alert("Jornada Avançando!");
-      // Lógica para a próxima fase do jogo
-      // Exemplo: mudar para outra música se for uma fase diferente
-      // if (musicaInicio) {
-      //   musicaInicio.src = 'soundtrack/musica_fase2.mp3'; // Supondo que você tenha outra música
-      //   musicaInicio.load();
-      //   musicaInicio.play().catch(e => console.error("Erro ao tocar música da fase 2:", e));
-      // }
+      // Para a música antes de redirecionar
+      if (musicaInicio && !musicaInicio.paused) {
+        musicaInicio.pause();
+        musicaInicio.currentTime = 0;
+      }
+
+      // Agora sim, redirecionamos para a página de login
+      window.location.href = "login.html";
     });
+
+    // A função `avancarGame` definida logo foi removida,
+    // pois a lógica já foi movida para dentro do event listener.
   }
 }); // Fim do DOMContentLoaded
