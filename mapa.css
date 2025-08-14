@@ -9,11 +9,9 @@ body {
 .map-container {
   width: 100%;
   margin: 0 auto;
-  border: 5px solid #000; /* borda para o contêiner */
   position: relative;
-  background-image: url("assets/icons/mapa teste.png"); /* substitua pelo caminho da sua imagem */
+  background-image: url(""); /* substitua pelo caminho da sua imagem */
   background-size: cover;
-  height: 600px; /* ajuste a altura conforme necessário */
 }
 
 /* Elementos do mapa (casas, árvores, etc.) */
