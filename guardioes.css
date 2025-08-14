@@ -1,0 +1,173 @@
+:root {
+    --primary-color: #f1c056; /* Dourado */
+    --secondary-color: #d4e4cd; /* Cinza claro */
+    --hud-bg: rgba(0, 0, 0, 0.85);
+    --font-family-primary: "Playfair Display", serif;
+    --font-family-secondary: "Lora", serif;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: var(--font-family-secondary);
+    color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.guardian-presentation-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("assets/icons/mapa teste.png");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.3) blur(5px);
+    z-index: -1;
+    animation: zoomOut 2s ease-in-out forwards;
+}
+
+@keyframes zoomOut {
+    from {
+        transform: scale(1.1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 900px;
+    height: 800px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dialogue-hud-container {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    height: 250px;
+    background-color: var(--hud-bg);
+    border: 5px solid var(--primary-color);
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8),
+        inset 0 0 10px rgba(255, 255, 255, 0.1);
+    margin-bottom: 25px;
+    gap: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.guardian-portrait-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 100%;
+    position: relative;
+}
+
+.guardian-portrait-container {
+    width: 150px;
+    height: 150px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 15px var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.guardian-portrait-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h1#guardian-name {
+    font-family: var(--font-family-primary);
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin: 5px 0 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+p#guardian-title {
+    font-size: 1em;
+    font-style: italic;
+    margin: 0;
+}
+
+.dialogue-text-and-button {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.dialogue-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 25px;
+    height: 150px;
+    /* Adicionamos uma largura máxima para que ele não expanda */
+    width: 100%;
+    max-width: 700px; /* Definindo uma largura máxima para a caixa de diálogo */
+    overflow: hidden; /* Garante que o texto não "vaze" para os lados */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box; /* Garante que o padding não adicione largura extra */
+}
+
+#dialogue-text {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 0;
+    /* A propriedade word-break é mais robusta para quebras de linha em qualquer lugar */
+    word-break: break-word;
+    white-space: pre-wrap; /* Mantém espaços e quebra de linha como estão */
+}
+
+.continue-btn {
+    margin-top: 50px;
+    background-color: var(--primary-color);
+    color: #2c2c2c;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    font-family: var(--font-family-primary);
+    text-transform: uppercase;
+}
+
+.continue-btn:hover {
+    background-color: #ffd700;
+    transform: scale(1.05);
+}

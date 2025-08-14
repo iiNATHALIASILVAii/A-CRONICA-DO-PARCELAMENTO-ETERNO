@@ -2,13 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("novo-jogo-btn")
     .addEventListener("click", function () {
-      window.location.href = "NOVA_JORNADA.html"; // Certifique-se que o nome do arquivo HTML está correto
+      window.location.href = "NOVA_JORNADA.html"; // tela nova jornada
     });
 
   document
     .getElementById("continuar-btn")
     .addEventListener("click", function () {
-      alert("Continuando Jornada!"); // Lógica para carregar um jogo salvo, exemplo: // window.location.href = 'tela_continuar.html';
+      window.location.href ="login.html"; // tela login
     });
 
   document

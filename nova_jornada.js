@@ -13,21 +13,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const skipBtn = document.getElementById("skip-btn");
   const sairIntroBtn = document.getElementById("sair-intro-btn");
 
-  // Configuração inicial da música
-  if (musicaInicio) {
-    // Verifica se o elemento de áudio existe
-    musicaInicio.volume = 0.2; // Define o volume da música de fundo
-
-    // Tentar tocar a música no carregamento com "muted", para contornar o autoplay policy
-    // Se não funcionar, o play será disparado no primeiro clique do usuário
-    musicaInicio.play().catch((error) => {
-      console.warn(
-        "Música inicial não pôde ser reproduzida automaticamente (autoplay policy).",
-        error
-      );
-      // Aqui você pode adicionar lógica para informar o usuário a interagir
-    });
-  }
+  // A nova solução para o áudio!
+  window.addEventListener("pageshow", (event) => {
+    if (musicaInicio) {
+      musicaInicio.volume = 0.1;
+      // A propriedade 'persisted' indica se a página foi restaurada do cache
+      if (event.persisted) {
+        musicaInicio
+          .play()
+          .catch((e) =>
+            console.log("Música não pôde ser reproduzida após restauração.")
+          );
+      } else {
+        // Caso contrário, é um carregamento novo
+        musicaInicio
+          .play()
+          .catch((e) =>
+            console.log("Música não pôde ser reproduzida no carregamento.")
+          );
+      }
+    }
+  });
 
   const dialogos = [
     "O tempo escapando pelos dedos, a lista de afazeres crescendo como trepadeiras selvagens...",

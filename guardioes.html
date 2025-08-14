@@ -1,11 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
-</body>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seu Guardião!</title>
+    <link rel="stylesheet" href="guardioes.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="guardian-presentation-bg"></div>
+
+    <main id="main-container">
+      <div class="dialogue-hud-container">
+        <div class="guardian-portrait-info">
+          <div class="guardian-portrait-container"></div>
+          <h1 id="guardian-name"></h1>
+          <p id="guardian-title"></p>
+        </div>
+
+        <div class="dialogue-text-and-button">
+          <div id="dialogue-box" class="dialogue-box">
+            <p id="dialogue-text"></p>
+          </div>
+          <button
+            id="continuar-jornada-btn"
+            class="continue-btn"
+            style="display: none"
+          >
+            Continuar Jornada
+          </button>
+        </div>
+        <audio
+          id="musica-inicio"
+          src="soundtrack/tarefas - Digestive biscuit.mp3"
+          loop
+        ></audio>
+      </div>
+    </main>
+
+    <script src="guardioes.js"></script>
+  </body>
 </html>
