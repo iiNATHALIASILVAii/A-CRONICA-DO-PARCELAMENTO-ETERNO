@@ -1,0 +1,343 @@
+:root {
+  --primary-color: #f1c056;
+  --secondary-color: #f4ead9;
+  --panel-bg: rgba(22, 11, 9, 0.78);
+  --panel-border: rgba(241, 192, 86, 0.4);
+  --input-bg: rgba(35, 19, 15, 0.82);
+  --input-border: rgba(241, 192, 86, 0.55);
+  --text-muted: #d8ccb8;
+  --error-color: #ff8f8f;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --font-primary: "Lora", serif;
+  --font-secondary: "Playfair Display", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--secondary-color);
+  background: #2a0f0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: antialiased;
+}
+
+.game-shell {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-screen {
+  position: relative;
+  width: min(92vw, 1024px);
+  aspect-ratio: 1024 / 774;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #381b15;
+  border: 2px solid rgba(241, 192, 86, 0.35);
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.35) inset,
+    0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.login-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../icons/bc.wide.nova.jornada.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -3;
+}
+
+.login-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(20, 8, 6, 0.84) 0%,
+      rgba(20, 8, 6, 0.42) 35%,
+      rgba(20, 8, 6, 0.18) 58%,
+      rgba(20, 8, 6, 0.78) 100%
+    );
+  z-index: -2;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 36px 24px;
+}
+
+.form-panel {
+  width: min(84%, 480px);
+  padding: 32px 28px 24px;
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 18px;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.38),
+    0 0 0 1px rgba(255, 215, 0, 0.05) inset;
+  backdrop-filter: blur(6px);
+  text-align: center;
+  display: none;
+  animation: fadeIn 0.35s ease;
+}
+
+.form-panel.active {
+  display: block;
+}
+
+.panel-perguntas {
+  width: min(88%, 560px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.panel-header h2 {
+  font-family: var(--font-secondary);
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  color: var(--primary-color);
+  margin-bottom: 8px;
+  line-height: 1.08;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.panel-header p {
+  font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 24px;
+}
+
+form {
+  width: 100%;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin: 14px 0 6px;
+  font-size: 1rem;
+  color: var(--secondary-color);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-family: var(--font-primary);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.35);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus {
+  border-color: #ffd86a;
+  box-shadow:
+    inset 0 0 5px rgba(0, 0, 0, 0.35),
+    0 0 0 3px rgba(241, 192, 86, 0.12);
+}
+
+.submit-btn,
+.secondary-btn {
+  width: 100%;
+  padding: 12px 18px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+  font-family: var(--font-primary);
+}
+
+.submit-btn {
+  background: rgba(77, 36, 13, 0.9);
+  color: #f5ead7;
+  border: 1px solid #d7a20a;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(54, 26, 16, 0.98);
+  color: #ffd86a;
+}
+
+.secondary-btn {
+  background: rgba(20, 12, 10, 0.55);
+  color: var(--primary-color);
+  border: 1px solid rgba(241, 192, 86, 0.55);
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffd86a;
+}
+
+.panel-link {
+  margin-top: 18px;
+  font-size: 0.96rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.panel-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.panel-link a:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
+.question-title {
+  text-align: left;
+  font-size: 1rem;
+  color: var(--secondary-color);
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.radio-group {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid rgba(241, 192, 86, 0.18);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.radio-group label:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(241, 192, 86, 0.35);
+}
+
+.radio-group input[type="radio"] {
+  accent-color: var(--primary-color);
+  width: auto;
+  margin: 0;
+}
+
+.error-msg {
+  min-height: 20px;
+  margin-top: 8px;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--error-color);
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 14px;
+  }
+
+  .login-screen {
+    width: min(96vw, 1024px);
+  }
+
+  .form-panel {
+    width: min(88%, 460px);
+    padding: 28px 22px 22px;
+  }
+
+  .panel-perguntas {
+    width: min(90%, 540px);
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 10px;
+  }
+
+  .login-screen {
+    width: 100%;
+  }
+
+  .form-panel {
+    width: min(92%, 92%);
+    padding: 24px 18px 18px;
+  }
+
+  .panel-header h2 {
+    font-size: clamp(1.7rem, 6vw, 2.2rem);
+  }
+
+  .panel-header p {
+    margin-bottom: 18px;
+  }
+
+  .submit-btn,
+  .secondary-btn {
+    padding: 11px 14px;
+    font-size: 0.95rem;
+  }
+
+  .panel-link {
+    font-size: 0.9rem;
+  }
+
+  .radio-group {
+    gap: 8px;
+  }
+
+  .radio-group label {
+    padding: 9px 10px;
+    font-size: 0.92rem;
+  }
+}

@@ -2,26 +2,25 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa Interativo</title>
-    <link rel="stylesheet" href="mapa.css" />
+    <link rel="stylesheet" href="assets/css/mapa.css" />
+    <script src="assets/js/mapa.js" defer></script>
   </head>
   <body>
-    <div class="map-container">
-      <div class="area oracle" onclick="interactWithOracle()">Oráculo</div>
-      <div class="area book" onclick="openTaskBook()">Livro das Tarefas</div>
-      <div class="area flora" onclick="enterFloraArea()">Clareira do Corpo</div>
-      <div class="area mentis" onclick="enterMentisArea()">
-        Torre do Conhecimento
-      </div>
-      <div class="area ordus" onclick="enterOrdusArea()">Templo do Caos</div>
-      <div class="area lumen" onclick="enterLumenArea()">Caverna Interior</div>
-      <div class="area lux" onclick="enterLuxArea()">Aurora Digital</div>
-      <div class="area lucros" onclick="enterLucrosArea()">Sala das Moedas</div>
-      <div class="area devoradores" onclick="enterDevoradores()">
-        Devoradores de Tempo
-      </div>
+    <div class="game-shell">
+      <main class="map-screen">
+        <div class="map-container">
+          <button class="hotspot oracle" data-area="Oráculo" aria-label="Oráculo"></button>
+          <button class="hotspot flora" data-area="Clareira do Corpo" aria-label="Clareira do Corpo"></button>
+          <button class="hotspot mentis" data-area="Torre do Conhecimento" aria-label="Torre do Conhecimento"></button>
+          <button class="hotspot ordus" data-area="Templo do Caos" aria-label="Templo do Caos"></button>
+          <button class="hotspot lumen" data-area="Caverna Interior" aria-label="Caverna Interior"></button>
+          <button class="hotspot lux" data-area="Aurora Digital" aria-label="Aurora Digital"></button>
+          <button class="hotspot livro" data-area="Livro das Tarefas" aria-label="Livro das Tarefas"></button>
+        </div>
+      </main>
     </div>
-    <script src="mapa.js"></script>
   </body>
 </html>

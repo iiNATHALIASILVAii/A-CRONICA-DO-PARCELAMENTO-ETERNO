@@ -1,0 +1,388 @@
+/* =========================
+   RESET
+========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: "Lora", serif;
+  color: white;
+  background: #2a0f0b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================
+   CONTAINER FIXO DO JOGO
+========================= */
+.nova-jornada-container {
+  position: relative;
+  width: min(92vw, 1024px);
+  aspect-ratio: 1024 / 774;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #381b15;
+  border: 2px solid rgba(241, 192, 86, 0.35);
+  box-shadow:
+    0 0 0 2px rgba(0, 0, 0, 0.35) inset,
+    0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+/* Fundo */
+.nova-jornada-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("../icons/fundo.tela.inicial.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: -3;
+}
+
+/* Overlay geral */
+.nova-jornada-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(20, 8, 6, 0.82) 0%,
+      rgba(20, 8, 6, 0.42) 32%,
+      rgba(20, 8, 6, 0.16) 58%,
+      rgba(20, 8, 6, 0.76) 100%
+    );
+  z-index: -2;
+}
+
+/* =========================
+   TELA INTRO
+========================= */
+.intro-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: clamp(28px, 4vw, 48px);
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+.intro-screen.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.intro-screen h1 {
+  max-width: 760px;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2.2rem, 4.5vw, 4.1rem);
+  color: #f1c056;
+  text-shadow:
+    0 0 10px rgba(255, 204, 0, 0.18),
+    0 0 24px rgba(0, 0, 0, 0.55);
+  line-height: 1.08;
+  margin-bottom: 18px;
+}
+
+.intro-screen p {
+  max-width: 700px;
+  font-size: clamp(1rem, 1.7vw, 1.45rem);
+  color: #fdf6e3;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.75);
+  line-height: 1.45;
+  margin-bottom: 34px;
+}
+
+/* =========================
+   BOTÕES GERAIS
+========================= */
+.intro-screen button,
+.botoes-oraculo button {
+  background: rgba(77, 36, 13, 0.58);
+  color: #f5ead7;
+  border: 1px solid #d7a20a;
+  border-radius: 10px;
+  padding: 12px 20px;
+  min-width: 180px;
+  font-size: clamp(0.95rem, 1vw, 1.1rem);
+  cursor: pointer;
+  transition: 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(1px);
+  margin: 6px;
+}
+
+.intro-screen button:hover,
+.botoes-oraculo button:hover {
+  transform: translateY(-2px);
+  background: rgba(54, 26, 16, 0.9);
+  color: #ffd86a;
+}
+
+.intro-screen button:active,
+.botoes-oraculo button:active {
+  transform: scale(0.98);
+}
+
+.secondary-btn {
+  background: rgba(30, 18, 14, 0.55);
+  border-color: rgba(215, 162, 10, 0.55);
+}
+
+/* =========================
+   PAINEL DO ORÁCULO
+========================= */
+.oraculo-intro {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%) scale(0.98);
+  z-index: 15;
+
+  width: min(84%, 760px);
+  min-height: 360px;
+  padding: 34px 28px 86px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  border-radius: 18px;
+  border: 1px solid rgba(241, 192, 86, 0.35);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(24, 12, 9, 0.78),
+      rgba(30, 16, 12, 0.62)
+    );
+  backdrop-filter: blur(6px) brightness(0.9);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 215, 0, 0.06) inset;
+
+  color: #fdf6e3;
+  line-height: 1.6;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.oraculo-intro.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Texto do diálogo */
+.dialogo-texto-atual {
+  width: 100%;
+  max-width: 620px;
+  min-height: 170px;
+  margin: 0 auto 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: clamp(1.05rem, 1.7vw, 1.5rem);
+  color: #fdf6e3;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Destaque do "Mas há esperança!" */
+.destaque-esperanca {
+  display: block;
+  text-align: center;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow:
+    0 0 10px rgba(255, 204, 0, 0.35),
+    0 0 20px rgba(255, 204, 0, 0.18);
+}
+
+/* =========================
+   BOTÕES DO ORÁCULO
+========================= */
+.botoes-oraculo {
+  width: 100%;
+  min-height: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+/* compatível com teu JS atual */
+.botoes-oraculo.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#skip-btn {
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  min-width: 148px;
+  padding: 9px 14px;
+  font-size: 0.82rem;
+  background: rgba(255, 217, 0, 0.04);
+  color: #d4e4cd;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  box-shadow: none;
+  opacity: 0.82;
+}
+
+#skip-btn:hover {
+  background: rgba(44, 44, 44, 0.38);
+  color: #ffd700;
+  border-color: #ffd700;
+  opacity: 1;
+}
+
+.botoes-oraculo #avancar-btn,
+.botoes-oraculo #voltar-menu-btn {
+  min-width: 190px;
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+.game-footer {
+  position: absolute;
+  left: 0;
+  bottom: 12px;
+  z-index: 25;
+  width: 100%;
+  text-align: center;
+  color: #e4d7c6;
+  font-size: clamp(0.72rem, 0.9vw, 0.92rem);
+  line-height: 1.4;
+  font-weight: 700;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+}
+
+.game-footer p {
+  padding: 0 16px;
+}
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+@media (max-width: 900px) {
+  body {
+    padding: 14px;
+  }
+
+  .nova-jornada-container {
+    width: min(96vw, 1024px);
+  }
+
+  .oraculo-intro {
+    width: min(88%, 700px);
+    min-height: 330px;
+    padding: 28px 22px 80px;
+  }
+
+  .dialogo-texto-atual {
+    min-height: 150px;
+  }
+
+  .intro-screen button,
+  .botoes-oraculo button {
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 10px;
+  }
+
+  .nova-jornada-container {
+    width: 100%;
+  }
+
+  .intro-screen h1 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+  }
+
+  .intro-screen p {
+    font-size: 1rem;
+    margin-bottom: 24px;
+  }
+
+  .intro-screen button,
+  .botoes-oraculo button {
+    min-width: 135px;
+    padding: 10px 14px;
+    font-size: 0.92rem;
+  }
+
+  .oraculo-intro {
+    width: min(92%, 92%);
+    min-height: 300px;
+    padding: 22px 18px 78px;
+  }
+
+  .dialogo-texto-atual {
+    min-height: 120px;
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+
+  .botoes-oraculo {
+    gap: 10px;
+  }
+
+  .botoes-oraculo #avancar-btn,
+  .botoes-oraculo #voltar-menu-btn {
+    min-width: 140px;
+  }
+
+  #skip-btn {
+    right: 14px;
+    bottom: 14px;
+    min-width: 132px;
+    font-size: 0.76rem;
+    padding: 8px 12px;
+  }
+
+  .game-footer {
+    font-size: 0.72rem;
+    bottom: 8px;
+  }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Jornada</title>
+
+    <link rel="stylesheet" href="assets/css/nova-jornada.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta
+      name="description"
+      content="Introdução da nova jornada em A Guerra de Cartália."
+    />
+    <meta name="author" content="Nathalia Silva" />
+    <meta name="keywords" content="RPG, jogo financeiro, crônica, jornada" />
+
+    <script src="assets/js/nova-jornada.js" defer></script>
+  </head>
+
+  <body>
+    <div class="game-shell">
+      <div class="game-container nova-jornada-container">
+        <section class="intro-screen active" aria-labelledby="titulo-intro">
+          <div class="painel-conteudo">
+            <h1 id="titulo-intro">O Grimório das Tarefas Esquecidas</h1>
+            <p>
+              "Desperte, jovem aprendiz. Sua verdadeira jornada começa agora."
+            </p>
+
+            <div class="intro-actions">
+              <button id="iniciar-jornada-btn">Iniciar Jornada</button>
+              <button id="sair-intro-btn" class="secondary-btn">Retornar</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="oraculo-intro" aria-labelledby="titulo-oraculo" aria-hidden="true">
+          <div class="painel-conteudo oraculo-box">
+            <h2 id="titulo-oraculo">O Oráculo dos Ciclos</h2>
+
+            <div class="dialogo-texto-atual" aria-live="polite"></div>
+
+            <div class="botoes-oraculo">
+              <button id="skip-btn" class="secondary-btn">Pular Diálogos</button>
+              <button id="avancar-btn">Avançar</button>
+              <button id="voltar-menu-btn" class="secondary-btn">Retornar</button>
+            </div>
+          </div>
+        </section>
+
+        <footer class="game-footer">
+          <p>&copy; 2025 Nathalia Silva | Todos os direitos reservados</p>
+        </footer>
+
+        <audio
+          id="musica-inicio"
+          src="assets/audio/Intro - Mountain Trials.mp3"
+          preload="auto"
+          loop
+        ></audio>
+      </div>
+    </div>
+  </body>
+</html>

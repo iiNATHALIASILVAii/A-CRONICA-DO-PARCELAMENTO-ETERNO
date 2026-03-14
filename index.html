@@ -2,73 +2,62 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <!-- Definição do conjunto de caracteres -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Compatibilidade com navegadores -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Responsividade -->
-    <title>Minha Aventura</title>
-    <!-- Título da página -->
-    <link rel="stylesheet" href="style.css" />
-    <!-- Link para o arquivo CSS -->
+    <title>A Guerra de Cartália</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
-    <!-- Link para a fonte Lora -->
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
       rel="stylesheet"
     />
-    <!-- Link para a fonte Playfair Display -->
-    <script src="script.js" defer></script>
-    <!-- Link para o arquivo JavaScript -->
-    <meta
-      name="description"
-      content="Uma reflexão sobre o ciclo interminável de parcelamento de dívidas e suas implicações sociais e econômicas."
-    />
-    <!-- Descrição da página -->
-    <meta name="author" content="Nathalia Silva" />
-    <!-- Autor do conteúdo -->
-    <meta name="keywords" content="RPG, jogo financeiro, crônica, reflexão" />
-    <!-- Palavras-chave para SEO -->
-  </head>
-  <!-- Cabeçalho do documento -->
-  <body>
-    <!-- Corpo do documento -->
-    <div class="game-container">
-      <header class="game-header">
-        <div class="title-wrapper">
-          <h1>Capítulo I: <span>O Chamado de Cartália</span></h1>
-          <!-- Título do jogo -->
-        </div>
-        <p>
-          <!-- Subtítulo do jogo -->
-          <span>"A jornada começa... A primeira fatura já</span>
-          <span>espreita na neblina"</span>
-        </p>
-        <!-- Título e subtítulo -->
-      </header>
 
-      <nav class="main-menu">
-        <!-- Menu principal -->
-        <ul>
-          <!-- Lista de opções do menu -->
-          <li><button id="novo-jogo-btn">Nova Jornada</button></li>
-          <li><button id="continuar-btn">Seguir Jornada</button></li>
-          <li><button id="grimorio-btn">Grimório</button></li>
-          <li><button id="sair-btn">Sair</button></li>
-        </ul>
-      </nav>
-      <!-- Rodapé -->
-      <footer class="game-footer">
-        <p>
-          &copy; 2025 Nathalia Silva | Todos os direitos reservados | Contato:
-          <a href="https://github.com/iiNATHALIASILVAii" target="_blank"
-            >GitHub</a
-          >
-        </p>
-      </footer>
+    <script src="assets/js/script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="game-shell">
+      <div class="game-container">
+        <div class="scene">
+          <img
+            class="hero"
+            src="assets/icons/guerreira.png"
+            alt="Guerreira de Cartália"
+          />
+        </div>
+
+        <header class="game-header">
+          <div class="title-wrapper">
+            <h1>Capítulo I: <span>O Chamado de Cartália</span></h1>
+          </div>
+
+          <p>
+            <span>"A jornada começa... A primeira fatura já</span>
+            <span>espreita na neblina."</span>
+          </p>
+        </header>
+
+        <main class="main-menu">
+          <ul>
+            <li><button id="novo-jogo-btn">Nova Jornada</button></li>
+            <li><button id="continuar-btn">Seguir Jornada</button></li>
+            <li><button id="grimorio-btn">Grimório</button></li>
+            <li><button id="sair-btn">Sair</button></li>
+          </ul>
+        </main>
+
+        <footer class="game-footer">
+          <p>
+            &copy; 2025 Nathalia Silva | Todos os direitos reservados | Contato:
+            <a href="https://github.com/iiNATHALIASILVAii" target="_blank">GitHub</a>
+          </p>
+        </footer>
+      </div>
     </div>
   </body>
 </html>
